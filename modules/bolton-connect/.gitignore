@@ -1,0 +1,9 @@
+# Module-local runtime artefacts
+__pycache__/
+*.pyc
+.env
+.venv/
+# Runtime database (synthetic demo data is seeded on first run)
+data/bolton_connect.db
+data/*.db-journal
+.pytest_cache/

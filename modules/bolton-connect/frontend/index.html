@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Adjust AI — Resident Support</title>
+  <meta name="description" content="Tell us about your situation in your own words and get a personalised plan for employment and community support in Bolton." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="resident-page">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site">
+    <div class="wrap header-row">
+      <a class="brand-lockup" href="index.html" aria-label="Adjust AI resident support">
+        <img class="brand-logo" src="assets/adjust-logo.png" alt="Adjust" width="1354" height="390" />
+        <span class="brand-ai">AI</span>
+      </a>
+      <nav aria-label="Workspace"><a class="header-link" href="adviser.html">Adviser view <span aria-hidden="true">↗</span></a></nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-intro" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">Resident Support · Bolton</p>
+        <h1 id="page-title">Your next step starts<br class="desktop-break" /> with your story.</h1>
+        <p class="intro-copy">Employment and community support, shaped around you. Tell us where you are now and what you would like to do next.</p>
+      </div>
+      <div class="intro-note">
+        <span class="note-mark" aria-hidden="true">↗</span>
+        <p>Your words.<br /><strong>Your choices.</strong></p>
+        <span>Use your plan without saving anything.</span>
+      </div>
+    </section>
+
+    <div class="notice skip-print" role="note">
+      <strong>How this works.</strong> This is a prototype. It gives you an automated plan to talk through with a
+      human adviser. It does <strong>not</strong> decide whether you are fit for work and does <strong>not</strong>
+      decide if you can get any benefit or service. You do not need to share any medical diagnosis. You can use it
+      without saving anything.
+    </div>
+
+    <form id="assess-form" class="card assessment-card" novalidate>
+      <div class="section-heading">
+        <span class="section-kicker">Your assessment</span>
+        <h2>Tell us about your situation</h2>
+      </div>
+      <div class="assessment-layout">
+        <div class="assessment-story">
+          <label for="text">In your own words, what's your situation and what would you like to do?</label>
+          <p class="hint" id="text-hint">For example: the kind of work you've done, what you'd like to do next, and
+            anything that makes work harder for you right now. There are no wrong answers.</p>
+          <textarea id="text" name="text" aria-describedby="text-hint" required minlength="10" maxlength="4000"></textarea>
+
+          <fieldset class="optional-details">
+            <legend>A few optional details (these can sharpen your plan)</legend>
+            <p class="hint">Every field here is optional and self-described. Leave anything blank if you prefer.</p>
+            <div class="grid2">
+              <div>
+                <label for="name">Your first name (optional)</label>
+                <input type="text" id="name" name="name" maxlength="80" autocomplete="given-name" />
+              </div>
+              <div>
+                <label for="age_band">Age range (optional)</label>
+                <select id="age_band" name="age_band">
+                  <option value="">Prefer not to say</option>
+                  <option value="16-17">16–17</option>
+                  <option value="18-24">18–24</option>
+                  <option value="25-49">25–49</option>
+                  <option value="50-64">50–64</option>
+                  <option value="65+">65+</option>
+                </select>
+              </div>
+              <div>
+                <label for="employment_status">Your work situation now (optional)</label>
+                <select id="employment_status" name="employment_status">
+                  <option value="">Prefer not to say</option>
+                  <option value="unemployed">Not working and looking</option>
+                  <option value="employed">In work</option>
+                  <option value="self_employed">Self-employed</option>
+                  <option value="economically_inactive">Not working (e.g. caring, health)</option>
+                  <option value="student">Studying</option>
+                  <option value="retired">Retired</option>
+                </select>
+              </div>
+              <div>
+                <label for="digital_confidence">How confident are you using computers? (optional)</label>
+                <select id="digital_confidence" name="digital_confidence">
+                  <option value="">Prefer not to say</option>
+                  <option value="low">Not very confident</option>
+                  <option value="medium">Fairly confident</option>
+                  <option value="high">Very confident</option>
+                </select>
+              </div>
+            </div>
+            <div class="check">
+              <input type="checkbox" id="health" name="health" />
+              <label for="health">I have a health condition or disability that affects my work (optional). You do not
+                need to say what it is.</label>
+            </div>
+            <div class="check">
+              <input type="checkbox" id="benefits" name="benefits" />
+              <label for="benefits">I currently receive benefits (optional)</label>
+            </div>
+          </fieldset>
+        </div>
+
+        <aside class="assessment-privacy" aria-label="Your privacy choices">
+          <fieldset class="consent-options">
+            <legend>Saving and sharing (your choice)</legend>
+            <p class="hint">Choose what happens to your answers. Both options are off unless you select them.</p>
+            <div class="check">
+              <input type="checkbox" id="consent_save" name="consent_save" />
+              <label for="consent_save">Save my answers so I can come back to this plan later. You'll get a private
+                link.</label>
+            </div>
+            <div class="check">
+              <input type="checkbox" id="consent_share" name="consent_share" />
+              <label for="consent_share">Share this plan with a Bolton adviser so they can help me. A person will
+                review it.</label>
+            </div>
+          </fieldset>
+          <div class="submission-area">
+            <p class="submission-note">Ready when you are. Your plan brings together support, training and practical next steps.</p>
+            <div class="actions">
+              <button type="submit" class="primary" id="submit-btn">Create my plan</button>
+              <button type="reset" class="secondary">Start again</button>
+            </div>
+            <p id="form-error" class="error hidden" role="alert"></p>
+          </div>
+        </aside>
+      </div>
+    </form>
+
+    <section id="result" class="card hidden" aria-live="polite" aria-labelledby="result-title" tabindex="-1">
+      <div class="section-heading">
+        <span class="section-kicker">Your next steps</span>
+        <h2 id="result-title">Your plan</h2>
+      </div>
+      <div id="result-body"></div>
+      <div class="actions skip-print plan-actions">
+        <button type="button" class="secondary" id="print-btn">Print this plan</button>
+        <button type="button" class="secondary" id="download-btn">Download (JSON)</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site">
+    <div class="footer-brand"><img class="brand-logo" src="assets/adjust-logo.png" alt="Adjust" width="1354" height="390" loading="lazy" /><span class="brand-ai">AI</span></div>
+    <p>Resident Support is a demonstration workspace. Some directory entries are clearly-labelled demonstration
+      data, not real services. Always confirm details with the provider before relying on them.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

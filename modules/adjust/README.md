@@ -1,87 +1,62 @@
-# ADJUST — Bolton Workplace Adjustments Assistant
+# ADJUST — better work, together
 
-An independent CIVICFORGE AI module for small employers. Describe work barriers, clarify missing context, explore sourced discussion options, prepare an employee conversation, find official support and print a one-page discussion draft.
+A fictional Bolton workplace demo for **employees and employers**. Either person can start. Each describes their side privately, reviews a plain-language list of work needs, and invites the other person. A single sourced conversation plan is created only after both reviewed contributions are present.
 
-**Local hackathon prototype.** Default analysis is deterministic and visibly labelled simulated. Guidance has received an editorial source check, not independent clinical or legal validation. No model service, account, payment or database is needed.
+## Run locally
 
-## Open ADJUST
-
-**Live demonstration:** [Open ADJUST](https://adjust-workplace-assistant.vercel.app). The Next.js frontend and FastAPI API run together on Vercel. See [deployment details](docs/vercel-deployment.md).
-
-Double-click **Open ADJUST.command** on macOS or **Open ADJUST.bat** on Windows, inside this folder. Or run:
+Double-click **Open ADJUST.command** (macOS) or **Open ADJUST.bat** (Windows), or run:
 
 ```sh
-cd modules/adjust
 python3 scripts/start.py
 ```
 
-The employer UI opens at **http://127.0.0.1:3001**. Its independent FastAPI API is at **http://127.0.0.1:8766/docs**, under `/api/adjust/`. Keep the terminal open; Ctrl+C stops only the processes started by this launcher. A second launch reuses an existing healthy ADJUST pair.
+UI: **http://127.0.0.1:3001**. API: **http://127.0.0.1:8766/docs**. Node 22+ and Python 3.11–3.13 are required. The launcher prepares independent dependencies or reuses installed runtimes, binds to loopback and opens the UI. Ctrl+C stops its own processes. Native Windows execution is not validated on this Mac.
 
-Prerequisites: Node.js 22+ and Python 3.11–3.13. The launcher uses the existing project's installed runtimes when present. On macOS it creates a module-owned `frontend/node_modules` symlink to reuse the installed packages, without editing them. If dependencies are absent, it installs an independent environment inside ADJUST; first installation needs network access. Windows installs its own frontend packages. The launch helper itself can run under a newer Python while selecting a supported backend runtime. Native Windows execution has not been validated on this Mac.
+The previously published [public demo](https://adjust-workplace-assistant.vercel.app) is the earlier employer-only release until these changes are separately deployed. This implementation does not publish or push changes automatically.
 
-Use `python3 scripts/start.py --setup-only` for setup, or `--no-open` to start without opening a browser. `ADJUST_PYTHON`, `ADJUST_API_PORT` and `ADJUST_UI_PORT` override runtime/ports. Everything binds to loopback. The module does not read the host application's `.env`, database or configuration.
+## The two-sided flow
 
-## What works
+1. Choose **I’m an employee** or **I’m an employer**.
+2. Describe the situation using fictional details. Employees can optionally select unpaid caring responsibilities or both. Employers add business size, role requirements, practical constraints and previous attempts.
+3. A conservative safety check runs over all description fields. Possible crisis stops the flow and shows NHS 111, Samaritans 116 123 and 999.
+4. Review suggested work needs. Replace each statement using the dropdown, remove any item or add another. The fixed work-language catalogue prevents condition names and original text entering a link. This is bounded local matching, not a generative model; review is essential.
+5. Confirm what to share and copy an invitation link. The recipient sees read-only reviewed needs, adds their own side and reviews it.
+6. Both contributions produce a plan with no-cost changes to agree, sourced options, a conversation agenda, support and a future review date. The second person sends a **return link** so the starter can open the same plan. There is no saved room, automatic update or waiting-case service.
+7. Print or save as a one-page A4 PDF through the browser. An exported file is outside ADJUST.
 
-- All seven employer screens: overview, situation, clarification, options, conversation, support and plan; plus searchable guidance library.
-- Bounded role/task/barrier extraction, reported limitations, constraints and missing information. It never determines diagnosis, legal disability or medical fitness.
-- 32 curated passages with exact official URL, publisher, section locator, owner role, editorial review date, expiry and verification status.
-- Authored options for handling tasks, desk work, work pressure, communication, environment, fatigue and mobility. Each option includes steps, employee questions, citations, limitations and referral guidance.
-- Source validation checks exact URL/publisher pairs, status, review dates and required metadata. Missing or expired evidence fails closed. Retrieval is local and never follows submitted URLs.
-- Employee-led conversation wording, written agreement prompts and follow-up.
-- Acas, occupational health, Access to Work and a cautious WorkWell Bolton route. The original local funding notice ended in March 2026; current availability is explicitly unconfirmed despite a published local referral page.
-- Human-reviewed discussion draft with one to three options, next steps, review date and source list. **Print / save PDF** uses the browser's print dialog and “Save as PDF”; there is no server-side PDF renderer or hidden export service. The automated Chromium test verifies the standard three-option draft fits one A4 page. Very long user text or browser print settings may require more pages; barrier excerpts are marked.
-- Five built-in fictional examples, including vague input and a specialist evidence gap.
+The employer-only cost comparison uses blank-by-default, employer-entered figures for adjustment costs, confirmed Access to Work funding, recruitment, vacancy cover, training, ramp-up and optional legal risk. It shows totals without an employment recommendation. Legal risk left blank is unquantified, not zero. A stated budget shortfall points to Acas and a fair process. Its fixed notice explains adjustment duties and uncapped discrimination compensation. Figures never enter links, APIs or the plan and clear on leaving that screen.
 
-## Privacy and safety
+## Privacy and demo limits
 
-Inputs/results live in process/browser memory only. There are no case tables, storage endpoints, localStorage, sessionStorage, cookies, analytics or employee identifiers. Uvicorn access logging is disabled by the launcher. API errors omit submitted input. Responses use `Cache-Control: no-store`. Clearing the session or reloading removes the current draft. This does not control browser extensions, operating-system memory, crash reporting or files a manager exports.
+There is no database, account, case identifier, cookie, browser storage, analytics or default external AI call. API requests/responses are not saved by this application. Original words exist transiently in browser/server memory for the suggestion step and are cleared from the UI after review or a safety stop. Only reviewed **canonical work-need IDs**, support category, business size and review date can enter the handoff. No free text is accepted in the combined-plan request.
 
-Explicit crisis/immediate-danger phrases stop the adjustment workflow before optional AI or recommendations and show NHS emergency/urgent routes. These conservative phrase checks are **not clinical triage** and can miss paraphrases or flag historical descriptions. Emergency guidance is also visible on the situation screen. Do not rely on ADJUST to decide whether a situation is safe.
+Links put these reviewed selections in a URL fragment, which is not sent with the page request. The UI removes the fragment from its current address immediately after capturing it. Closing/reloading, clearing the session or leaving the page clears its in-memory draft, including browser back/forward-cache state. **Copied invitation/return links and exported PDFs cannot be recalled**. Anyone holding a link can read its reviewed selections; share it privately. There is no identity verification and neither checkbox proves actual agreement. Use fictional data only. Hosting infrastructure, extensions and exported files are outside these application-level claims.
 
-No adjustment is automatically implemented. Plan generation requires a manager's review, reanalyses the situation against the current library and rejects fabricated selections, missing evidence, past review dates and unsafe content. Manager review is not employee agreement or professional approval. Do not delay appropriate risk assessment or employer responsibilities while seeking funding.
+Local phrase checks are not clinical triage and can miss or overflag a crisis. Official support routes remain visible before submission. ADJUST does not diagnose, determine legal disability, decide eligibility or funding, or approve changes. Both people must discuss practicality, safety and agreement.
 
-No shared host files, registry entries, database schema or Bolton Connect code are changed. See the [repository audit](docs/repository-audit.md) and [integration manifest](integration-manifest.json). Linking or mounting the module inside the host is a separate shared-file change for the owner to review.
+## Sources and rights
 
-## Optional AI extraction
+[Official guidance checked 16 October 2026](knowledge/two-sided-guidance.md) records exact primary URLs and qualifications. Carer plans include the day-one right to **request** flexible working, qualifying unpaid Carer’s Leave, Bolton Council’s carer’s assessment and a Carer’s Allowance eligibility/benefits check. Caring alone does not create the disability reasonable-adjustment duty.
 
-Default operation does not contact another AI. To deliberately enable a compatible extraction endpoint, set the server-only `ADJUST_AI_BASE_URL`, `ADJUST_AI_MODEL` and `ADJUST_AI_API_KEY` environment variables described in `.env.example`. The launcher does not load that file automatically; export the variables in your shell. Never use `NEXT_PUBLIC_*` for secrets.
+Access to Work is not automatic funding and does not pay for adjustments an employer is legally required to make. The plan shows business-size cost-sharing guidance from DWP’s staff guide with confirmation required: public official sources contain differences in wording. The private calculator deducts only a confirmed amount entered by the employer. WorkWell Bolton’s original funding ended in March 2026; current availability must be confirmed.
 
-The UI offers a per-request opt-in only when configured. Enabling it transmits the situation to that provider; use fictional data unless an appropriate handling arrangement exists. The model can only supply exact input excerpts for missing fields. Invalid schema, fabricated excerpts, prohibited claims, timeouts and provider errors return the deterministic fallback. A model cannot generate recommendations, citations or decisions. Source-bound options remain authored local rules. No live external model call was used to build or test this module. Model tests use mocks.
+The legacy extraction, optional AI adapter, 32-passage validated source catalogue and employer API remain available for compatibility. The current two-sided UI always uses authored local rules and the new stateless `/api/adjust/case/*` endpoints. The new guidance is editorially checked and is not independent legal or clinical validation.
 
-## Checks
-
-From this folder:
+## Validation and files
 
 ```sh
 python3 scripts/check.py
-```
-
-Runs the independent backend suite, TypeScript, frontend unit tests and a separate production build. It does not rebuild the existing CIVICFORGE frontend/backend. For browser scenarios and PDF export:
-
-```sh
-# First time, if a Playwright browser is not installed:
-cd frontend
-npx playwright install chromium
-cd ..
-python3 scripts/check.py --e2e
-
-# Or use an already-installed Chrome browser:
 ADJUST_BROWSER_CHANNEL=chrome python3 scripts/check.py --e2e
 ```
 
-The end-to-end runner starts independent test servers on 3186/8786 with their own build folder and stops them afterwards. Set `ADJUST_TEST_URL=http://127.0.0.1:3001` to exercise an already-running ADJUST instance instead. Reports, screenshots and the example PDF appear under `frontend/test-results/` and contain fictional data only. See [validation results](docs/validation.md) for executed checks and limitations.
+The complete runner checks this module only. Browser tests start an isolated UI/API pair; they use fictional inputs and inspect real PDF output. See [executed results](docs/validation.md) and [current log](PROJECT_LOG.md), including limitations. A Playwright Chromium installation or supported Chrome is needed for E2E.
 
-## Module map
+- `backend/adjust_api/cases.py`: strict two-sided API, safety, canonical needs and sourced plan.
+- `frontend/components/two-sided-workspace.tsx`: both routes, review, handoff and privacy lifecycle.
+- `frontend/components/combined-plan.tsx`: shared printable plan.
+- `frontend/components/cost-comparison.tsx`: employer-private calculator.
+- `frontend/lib/case-api.ts`: strict handoff allowlist and API types.
+- `knowledge/two-sided-guidance.md`: official checks and qualifications.
+- `docs/api-contract.md`: current and compatibility API contracts.
 
-```text
-backend/adjust_api/   isolated app, schemas, safety, extraction, providers, retrieval, options and plan
-backend/tests/        deterministic source, AI mock, API, safety and plan tests
-frontend/            independent Next.js / React / TypeScript employer workspace
-knowledge/           reviewed source catalogue and verification record
-scripts/             independent launcher and validation runner
-docs/                audit, accessibility and validation records
-integration-manifest.json
-```
-
-Before any live pilot: appoint an accountable named human content reviewer, obtain qualified guidance review, assess data handling and identity/access needs, improve semantic extraction and safety evaluation, conduct assistive-technology testing and establish source maintenance. ADJUST does not claim legal compliance or measured real-world accuracy.
+Unrelated CIVICFORGE and Bolton Connect application code is unchanged. Shared-host integration and publishing are separate work.

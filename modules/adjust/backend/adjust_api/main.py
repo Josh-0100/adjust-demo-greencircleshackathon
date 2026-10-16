@@ -6,6 +6,7 @@ from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
+from .cases import router as case_router
 from .engine import analyse, make_plan
 from .knowledge import KnowledgeLibrary
 from .models import AnalyseRequest, AnalyseResponse, Plan, PlanRequest
@@ -91,6 +92,7 @@ def create_app():
     app = FastAPI(title="ADJUST · Workplace adjustments", version="0.1.0",
                   description="Independent, stateless local prototype. General guidance with human review; no production authentication.")
     app.include_router(router, prefix="/api")
+    app.include_router(case_router, prefix="/api/adjust")
     app.add_middleware(CORSMiddleware, allow_origins=["http://localhost:3001", "http://127.0.0.1:3001"],
                        allow_methods=["GET", "POST"], allow_headers=["Content-Type"])
     app.add_middleware(PrivacyHeaders)

@@ -32,9 +32,11 @@
     "**/*.ts",
     "**/*.tsx",
     ".next-check/types/**/*.ts",
+    ".next-civicforge/types/**/*.ts",
+    ".next-e2e/types/**/*.ts",
+    ".next-integrated/types/**/*.ts",
     ".next/types/**/*.ts",
-    "next-env.d.ts",
-    ".next-e2e/types/**/*.ts"
+    "next-env.d.ts"
   ],
   "exclude": [
     "node_modules"

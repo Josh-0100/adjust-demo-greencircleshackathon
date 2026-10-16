@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Adjust AI — Adviser workspace</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="adviser-page">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site">
+    <div class="wrap header-row">
+      <a class="brand-lockup" href="index.html" aria-label="Adjust AI resident support">
+        <img class="brand-logo" src="assets/adjust-logo.png" alt="Adjust" width="1354" height="390" />
+        <span class="brand-ai">AI</span>
+      </a>
+      <nav aria-label="Workspace"><a class="header-link" href="index.html">Resident view <span aria-hidden="true">↗</span></a></nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-intro adviser-intro" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">Council Dashboard · Bolton</p>
+        <h1 id="page-title">A human view of<br class="desktop-break" /> every next step.</h1>
+        <p class="intro-copy">Review shared plans, check the details and help residents move forward with confidence.</p>
+      </div>
+      <div class="intro-note">
+        <span class="note-mark" aria-hidden="true">↗</span>
+        <p>Adviser<br /><strong>workspace.</strong></p>
+        <span>Every case needs your review.</span>
+      </div>
+    </section>
+    <div class="notice skip-print" role="note">
+      <strong>Demonstration dashboard.</strong> No real login — a demo <code>staff</code> role is used. No identifiable resident
+      data appears in the summary counts.
+    </div>
+    <p id="auth-error" class="error hidden" role="alert"></p>
+
+    <section id="aggregated-insights" class="card" aria-labelledby="summary-title">
+      <div class="section-heading">
+        <span class="section-kicker">At a glance</span>
+        <h2 id="summary-title">Summary (de-identified)</h2>
+      </div>
+      <div class="stat-grid" id="stats"></div>
+    </section>
+
+    <section id="case-review" class="card queue-card" aria-labelledby="queue-title">
+      <div class="section-heading">
+        <span class="section-kicker">Shared resident plans</span>
+        <h2 id="queue-title">Case queue</h2>
+        <p class="hint">Cases are created only when a resident chooses to share their plan. Every case needs a human
+          review before any action.</p><p class="hint">Referrals: review the service guidance in an opened case. This workspace does not send or track referrals.</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col">Created</th><th scope="col">Status</th><th scope="col">Summary</th><th scope="col">Flags</th><th scope="col">Action</th></tr>
+          </thead>
+          <tbody id="cases-body"><tr><td colspan="5">Loading…</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="detail" class="card hidden" aria-labelledby="detail-title" tabindex="-1">
+      <div class="section-heading">
+        <span class="section-kicker">Human review</span>
+        <h2 id="detail-title">Case detail</h2>
+      </div>
+      <div id="detail-body"></div>
+    </section>
+  </main>
+
+  <footer class="site">
+    <div class="footer-brand"><img class="brand-logo" src="assets/adjust-logo.png" alt="Adjust" width="1354" height="390" loading="lazy" /><span class="brand-ai">AI</span></div>
+    <p>Prototype adviser view. Recommendations flagged as unverified or caveated must be confirmed before being
+      offered to a resident.</p>
+  </footer>
+
+  <script src="adviser.js"></script>
+</body>
+</html>

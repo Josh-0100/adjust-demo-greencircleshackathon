@@ -1,0 +1,317 @@
+{
+  "version": "0.1.0",
+  "borough": "Bolton",
+  "generated": "2026-10-16",
+  "notice": "Mixed provenance. Entries tagged verification_status 'verified' or 'source_listed' are drawn from official public listings on the date in last_verified and should still be confirmed before a resident relies on them. Entries with synthetic=true are clearly-labelled demonstration data and are NOT real services. 'historical'/'expired' entries are shown only to demonstrate how closed or time-limited programmes are withheld from automatic recommendation.",
+  "services": [
+    {
+      "id": "bolton-employment-hub",
+      "name": "Bolton Employment Hub",
+      "description": "Bolton Council's employment support service for residents. Help with job searching, applications and interview preparation, building a CV, access to training and skills, and support returning to work after a break or changing sector.",
+      "provider": "Bolton Council",
+      "borough": "Bolton",
+      "category": "employment_assistance",
+      "eligibility": [
+        {
+          "id": "geo-bolton",
+          "label": "Live in the Bolton area",
+          "kind": "geographic",
+          "params": {"boroughs": ["Bolton"]}
+        }
+      ],
+      "referral_requirements": [],
+      "source_label": "Bolton Employment Hub (boltonemploymenthub.org.uk) and bolton.gov.uk",
+      "source_url": "https://boltonemploymenthub.org.uk/support/",
+      "last_verified": "2026-10-16",
+      "verification_status": "verified",
+      "content_owner": "Bolton Council",
+      "contact": "Phone 01204 338981, text 07385411367, or email GetBoltonWorking@bolton.gov.uk",
+      "active": true,
+      "synthetic": false,
+      "notes": ["Service relocated to the One Stop Shop in 2026; confirm the current location when booking."]
+    },
+    {
+      "id": "national-careers-service",
+      "name": "National Careers Service",
+      "description": "Free, impartial careers information, advice and guidance for adults in England. Includes a skills assessment, help choosing a direction, and support with CVs and job applications by phone, webchat or online.",
+      "provider": "National Careers Service (Department for Education)",
+      "borough": "Bolton",
+      "category": "employment_assistance",
+      "eligibility": [
+        {
+          "id": "age-13-plus",
+          "label": "Aged 13 or over (full guidance for adults 18+)",
+          "kind": "age",
+          "params": {"min_band": "16-17"}
+        }
+      ],
+      "referral_requirements": [],
+      "source_label": "National Careers Service (nationalcareers.service.gov.uk)",
+      "source_url": "https://nationalcareers.service.gov.uk/",
+      "last_verified": "2026-10-16",
+      "verification_status": "source_listed",
+      "content_owner": "Department for Education",
+      "contact": null,
+      "active": true,
+      "synthetic": false,
+      "notes": ["National service available to Bolton residents online and by phone."]
+    },
+    {
+      "id": "jobcentre-plus-bolton",
+      "name": "Jobcentre Plus (DWP), Bolton",
+      "description": "Department for Work and Pensions support for people claiming Universal Credit or looking for work, including a work coach, help with job searching, and access to other DWP programmes.",
+      "provider": "Department for Work and Pensions",
+      "borough": "Bolton",
+      "category": "employment_assistance",
+      "eligibility": [
+        {
+          "id": "geo-bolton",
+          "label": "Live in the Bolton area",
+          "kind": "geographic",
+          "params": {"boroughs": ["Bolton"]}
+        }
+      ],
+      "referral_requirements": [],
+      "source_label": "GOV.UK Jobcentre Plus directory",
+      "source_url": "https://www.gov.uk/contact-jobcentre-plus",
+      "last_verified": "2026-10-16",
+      "verification_status": "source_listed",
+      "content_owner": "Department for Work and Pensions",
+      "contact": null,
+      "active": true,
+      "synthetic": false,
+      "notes": ["Confirm your local Bolton jobcentre and appointment arrangements via GOV.UK."]
+    },
+    {
+      "id": "gm-workwell",
+      "name": "Greater Manchester WorkWell (WorkWell Bolton)",
+      "description": "A health-and-work support pilot for Greater Manchester residents who face a health condition or disability that puts their work at risk, or who are recently out of work with a health condition. Work and health coaches give one-to-one support to stay in or return to work.",
+      "provider": "Greater Manchester Combined Authority",
+      "borough": "Bolton",
+      "category": "disability_employment_support",
+      "eligibility": [
+        {
+          "id": "geo-gm",
+          "label": "Live in Greater Manchester",
+          "kind": "residency",
+          "params": {"areas": ["Greater Manchester"], "boroughs": ["Bolton"]}
+        },
+        {
+          "id": "health-barrier",
+          "label": "Have a health condition or disability affecting work",
+          "kind": "health_or_disability",
+          "params": {"required": true}
+        },
+        {
+          "id": "referral",
+          "label": "Joined through a referral — participants are identified and invited by health or employment providers",
+          "kind": "referral_required",
+          "params": {}
+        }
+      ],
+      "referral_requirements": ["Participants are identified and invited by providers; it is not a direct self-referral route. Ask a work coach or an adviser whether a referral is possible."],
+      "source_label": "Greater Manchester Combined Authority (greatermanchester-ca.gov.uk)",
+      "source_url": "https://www.greatermanchester-ca.gov.uk/what-we-do/education-work-and-skills/working-well/greater-manchester-workwell-service/",
+      "last_verified": "2026-10-16",
+      "verification_status": "source_listed",
+      "content_owner": "Greater Manchester Combined Authority",
+      "contact": null,
+      "active": true,
+      "synthetic": false,
+      "notes": ["Time-limited pilot funded to 31 March 2027 — confirm it is still open before relying on it.", "Voluntary and referral/invite-based, so it is offered only as 'ask about a referral', never as an automatic sign-up."]
+    },
+    {
+      "id": "access-to-work",
+      "name": "Access to Work (DWP)",
+      "description": "A government grant that can pay for practical support at work if you have a physical or mental health condition or disability — for example specialist equipment, support workers, or help getting to and from work. It does not affect other benefits.",
+      "provider": "Department for Work and Pensions",
+      "borough": "Bolton",
+      "category": "workplace_adjustments",
+      "eligibility": [
+        {
+          "id": "age-16-plus",
+          "label": "Aged 16 or over",
+          "kind": "age",
+          "params": {"min_band": "16-17"}
+        },
+        {
+          "id": "health-barrier",
+          "label": "Have a health condition or disability affecting work",
+          "kind": "health_or_disability",
+          "params": {"required": true}
+        },
+        {
+          "id": "in-or-starting-work",
+          "label": "In paid work or about to start paid work or self-employment",
+          "kind": "employment_status",
+          "params": {"any_of": ["employed", "self_employed"], "note": "Also covers a confirmed job start."}
+        }
+      ],
+      "referral_requirements": [],
+      "source_label": "GOV.UK Access to Work",
+      "source_url": "https://www.gov.uk/access-to-work",
+      "last_verified": "2026-10-16",
+      "verification_status": "source_listed",
+      "content_owner": "Department for Work and Pensions",
+      "contact": null,
+      "active": true,
+      "synthetic": false,
+      "notes": ["Applies once a job or start date is in place; a resident still job-hunting can note it for later."]
+    },
+    {
+      "id": "citizens-advice-bury-bolton",
+      "name": "Citizens Advice Bury & Bolton",
+      "description": "Free, confidential and impartial advice on money and debt, benefits and welfare rights, employment and housing rights, and consumer issues. Available by drop-in, phone, email and an out-of-hours service.",
+      "provider": "Citizens Advice Bury & Bolton",
+      "borough": "Bolton",
+      "category": "financial_guidance",
+      "eligibility": [
+        {
+          "id": "geo-bolton",
+          "label": "Live in the Bolton or Bury area",
+          "kind": "geographic",
+          "params": {"boroughs": ["Bolton", "Bury"]}
+        }
+      ],
+      "referral_requirements": [],
+      "source_label": "Citizens Advice Bury & Bolton (cabb.org.uk)",
+      "source_url": "https://www.cabb.org.uk/get-help/",
+      "last_verified": "2026-10-16",
+      "verification_status": "source_listed",
+      "content_owner": "Citizens Advice Bury & Bolton",
+      "contact": null,
+      "active": true,
+      "synthetic": false,
+      "notes": ["Independent charity, separate from Bolton Council."]
+    },
+    {
+      "id": "bolton-college-adult-skills",
+      "name": "Bolton College — adult courses and skills",
+      "description": "Adult education and skills courses in Bolton, including English and maths (functional skills), vocational qualifications, and routes into further training. Some courses are free depending on circumstances.",
+      "provider": "Bolton College",
+      "borough": "Bolton",
+      "category": "skills_training",
+      "eligibility": [
+        {
+          "id": "age-19-plus",
+          "label": "Typically aged 19 or over for adult courses",
+          "kind": "age",
+          "params": {"min_band": "18-24"}
+        },
+        {
+          "id": "geo-bolton",
+          "label": "Live in or near Bolton",
+          "kind": "geographic",
+          "params": {"boroughs": ["Bolton"]}
+        }
+      ],
+      "referral_requirements": [],
+      "source_label": "Bolton College (boltoncollege.ac.uk)",
+      "source_url": "https://www.boltoncollege.ac.uk/",
+      "last_verified": "2026-10-16",
+      "verification_status": "source_listed",
+      "content_owner": "Bolton College",
+      "contact": null,
+      "active": true,
+      "synthetic": false,
+      "notes": ["Course availability and any fee or free-course eligibility change each term — confirm with the college."]
+    },
+    {
+      "id": "learn-my-way",
+      "name": "Learn My Way — free online digital skills",
+      "description": "Free online courses that build basic digital skills — using a device, getting online, staying safe, and using online services. Useful if applying for jobs online feels difficult.",
+      "provider": "Good Things Foundation",
+      "borough": "Bolton",
+      "category": "digital_inclusion",
+      "eligibility": [],
+      "referral_requirements": [],
+      "source_label": "Learn My Way (learnmyway.com)",
+      "source_url": "https://www.learnmyway.com/",
+      "last_verified": "2026-10-16",
+      "verification_status": "source_listed",
+      "content_owner": "Good Things Foundation",
+      "contact": null,
+      "active": true,
+      "synthetic": false,
+      "notes": ["Online and open to anyone; for face-to-face help, ask about a local digital drop-in in Bolton."]
+    },
+    {
+      "id": "kickstart-scheme-historical",
+      "name": "Kickstart Scheme (closed)",
+      "description": "A former government scheme that funded short job placements for young people on Universal Credit. It is included here only to demonstrate how closed programmes are handled — it is no longer available.",
+      "provider": "Department for Work and Pensions",
+      "borough": "Bolton",
+      "category": "employment_assistance",
+      "eligibility": [
+        {
+          "id": "age-16-24",
+          "label": "Was for 16 to 24 year olds on Universal Credit",
+          "kind": "age",
+          "params": {"bands": ["16-17", "18-24"]}
+        }
+      ],
+      "referral_requirements": [],
+      "source_label": "GOV.UK (historical) — Kickstart Scheme",
+      "source_url": null,
+      "last_verified": null,
+      "verification_status": "historical",
+      "content_owner": "Department for Work and Pensions",
+      "contact": null,
+      "active": false,
+      "synthetic": false,
+      "notes": ["Closed to new applications in 2021 and ended in 2022.", "Shown only to demonstrate that expired programmes are never auto-recommended."]
+    },
+    {
+      "id": "demo-wellbeing-at-work",
+      "name": "Bolton Wellbeing at Work (demonstration)",
+      "description": "DEMONSTRATION SERVICE (not real). Stands in for a local wellbeing-at-work service offering confidence building and help managing stress while looking for or staying in work. Used to show how wellbeing support would appear.",
+      "provider": "Synthetic demonstration provider",
+      "borough": "Bolton",
+      "category": "wellbeing_support",
+      "eligibility": [
+        {
+          "id": "geo-bolton",
+          "label": "Live in the Bolton area",
+          "kind": "geographic",
+          "params": {"boroughs": ["Bolton"]}
+        }
+      ],
+      "referral_requirements": [],
+      "source_label": "Adjust AI synthetic demonstration data",
+      "source_url": null,
+      "last_verified": null,
+      "verification_status": "unverified",
+      "content_owner": "Adjust AI (synthetic demonstration data)",
+      "contact": null,
+      "active": true,
+      "synthetic": true,
+      "notes": ["Demonstration only — confirm a real equivalent with Bolton Council before signposting a resident."]
+    },
+    {
+      "id": "demo-community-connectors",
+      "name": "Bolton Community Connectors (demonstration)",
+      "description": "DEMONSTRATION SERVICE (not real). Stands in for a community hub offering volunteering, social connection and informal routes back towards work. Used to show how community support would appear.",
+      "provider": "Synthetic demonstration provider",
+      "borough": "Bolton",
+      "category": "community_support",
+      "eligibility": [
+        {
+          "id": "geo-bolton",
+          "label": "Live in the Bolton area",
+          "kind": "geographic",
+          "params": {"boroughs": ["Bolton"]}
+        }
+      ],
+      "referral_requirements": [],
+      "source_label": "Adjust AI synthetic demonstration data",
+      "source_url": null,
+      "last_verified": null,
+      "verification_status": "unverified",
+      "content_owner": "Adjust AI (synthetic demonstration data)",
+      "contact": null,
+      "active": true,
+      "synthetic": true,
+      "notes": ["Demonstration only — confirm a real equivalent with Bolton Council before signposting a resident."]
+    }
+  ]
+}

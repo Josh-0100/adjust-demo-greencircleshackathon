@@ -7,14 +7,59 @@
   "host_files_modified": [],
   "bolton_connect_modified": false,
   "host_registry_modified": false,
-  "frontend": {"stack": "Next.js 15 / React 19 / TypeScript", "port": 3001, "url": "http://127.0.0.1:3001", "api_proxy": "/api/adjust/:path*"},
-  "backend": {"stack": "FastAPI / Pydantic", "port": 8766, "asgi": "adjust_api.main:app", "working_directory": "modules/adjust/backend", "router": "adjust_api.main:router", "host_router_mount_prefix_if_reviewed": "/api"},
-  "api": ["GET /api/adjust/health", "GET /api/adjust/knowledge?q=", "GET /api/adjust/scenarios", "GET /api/adjust/support", "POST /api/adjust/analyse", "POST /api/adjust/plan"],
-  "database": {"required": false, "migrations": [], "employee_data_persisted": false},
+  "frontend": {
+    "stack": "Next.js 15 / React 19 / TypeScript",
+    "port": 3001,
+    "url": "http://127.0.0.1:3001",
+    "api_proxy": "/api/adjust/:path*"
+  },
+  "backend": {
+    "stack": "FastAPI / Pydantic",
+    "port": 8766,
+    "asgi": "adjust_api.main:app",
+    "working_directory": "modules/adjust/backend",
+    "router": "adjust_api.main:router",
+    "host_router_mount_prefix_if_reviewed": "/api"
+  },
+  "api": [
+    "GET /api/adjust/health",
+    "GET /api/adjust/knowledge?q=",
+    "GET /api/adjust/scenarios",
+    "GET /api/adjust/support",
+    "POST /api/adjust/analyse",
+    "POST /api/adjust/plan",
+    "GET /api/adjust/case/catalogue",
+    "POST /api/adjust/case/prepare",
+    "POST /api/adjust/case/plan"
+  ],
+  "database": {
+    "required": false,
+    "migrations": [],
+    "employee_data_persisted": false
+  },
   "authentication": "Loopback local prototype; no production identity provider. Does not inherit demo-role authentication.",
-  "ai": {"default": "deterministic local rules; simulated", "optional": "server-only compatible exact-excerpt extractor; per-request opt-in", "provider_writes_recommendations": false},
-  "exports": {"format": "Browser print / Save as PDF", "server_storage": false, "selection_limit": 3},
-  "knowledge": {"path": "knowledge/catalogue.json", "passages": 32, "editorial_check": "2026-10-16", "review_due": "2027-01-14", "owner": "ADJUST prototype content maintainer (editorial role)", "qualified_human_reviewer": null, "independent_professional_validation": "pending"},
+  "ai": {
+    "default": "deterministic local rules; simulated",
+    "optional": "server-only compatible exact-excerpt extractor; per-request opt-in",
+    "provider_writes_recommendations": false
+  },
+  "exports": {
+    "format": "Browser print / Save as PDF",
+    "server_storage": false,
+    "selection_limit": 3,
+    "reviewed_need_limit_per_side": 10,
+    "private_cost_figures_included": false
+  },
+  "knowledge": {
+    "path": "knowledge/catalogue.json",
+    "passages": 32,
+    "editorial_check": "2026-10-16",
+    "review_due": "2027-01-14",
+    "owner": "ADJUST prototype content maintainer (editorial role)",
+    "qualified_human_reviewer": null,
+    "independent_professional_validation": "pending",
+    "two_sided_check": "knowledge/two-sided-guidance.md"
+  },
   "standalone_launch": "python3 modules/adjust/scripts/start.py",
   "standalone_checks": "python3 modules/adjust/scripts/check.py --e2e",
   "optional_host_changes_requiring_review": [
@@ -23,5 +68,19 @@
     "A mounted UI needs an explicit reviewed API rewrite and isolation of styles. No shared configuration, route or registry changes have been made.",
     "Appoint a named human content owner and qualified reviewer before real-world use."
   ],
-  "limitations": ["Prototype phrase-based analysis and safety; no accuracy claim", "No live-model validation", "No clinical or individual legal determination", "Bolton WorkWell continued funding/capacity unconfirmed", "Native Windows and assistive-technology testing outstanding"]
+  "limitations": [
+    "Prototype phrase-based analysis and safety; no accuracy claim",
+    "No live-model validation",
+    "No clinical or individual legal determination",
+    "Bolton WorkWell continued funding/capacity unconfirmed",
+    "Native Windows and assistive-technology testing outstanding"
+  ],
+  "experience": "employee-first and employer-first two-sided discussion flow",
+  "handoff": {
+    "storage": "none; reviewed enums and canonical IDs in a URL fragment",
+    "directions": "invitation then combined-plan return link",
+    "identity_verification": false,
+    "copied_links_recallable": false,
+    "private_text_included": false
+  }
 }

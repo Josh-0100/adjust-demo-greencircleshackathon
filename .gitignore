@@ -1,0 +1,36 @@
+node_modules/
+.next/
+dist/
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+*.pyc
+*.db
+*.db-shm
+*.db-wal
+.env
+.env.local
+!.env.example
+test-results/
+playwright-report/
+coverage/
+.runtime/
+*.log
+.DS_Store
+
+# Local builds, deployment metadata and module backups
+.next*/
+.vercel/
+*.tsbuildinfo
+*.db-journal
+*.sqlite
+*.sqlite3
+backups/
+
+# Also ignore dependency symlinks used for local verification.
+node_modules
+
+# Keep environment variants local; publish only the example template.
+.env*
+!.env.example

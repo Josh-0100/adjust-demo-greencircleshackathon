@@ -1,0 +1,36 @@
+challenge:
+  borough: Bolton
+  title: Adjust AI
+  description: A reusable civic workflow platform, ready to adapt when the borough
+    challenge is revealed.
+  problem_statement: Residents can struggle to find the right support, while council
+    teams spend time navigating and routing enquiries.
+  target_users:
+  - Residents seeking support and opportunities
+  - Council staff reviewing enquiries
+  desired_outcomes:
+  - Clear, source-backed next steps for residents
+  - Faster routing with human oversight
+  - Transparent evidence and measurable prototype outcomes
+  selected_modules:
+  - service-navigator
+  - employment
+  - community
+  - triage
+  - learning
+  - custom
+  success_metrics:
+  - Resident task completion
+  - Human review rate
+  - Processing latency
+  - Source coverage
+  constraints:
+  - Synthetic data until approved council sources are available
+  - Human review for consequential recommendations
+  - No automated service eligibility decisions
+  data_sources:
+  - Adjust AI fictional demonstration catalogue
+  demo_scenario: My flat is cold and damp, and I am struggling with energy bills.
+    What support can I ask about?
+  human_review_required: true
+escalation_threshold: 0.62

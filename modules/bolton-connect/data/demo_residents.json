@@ -1,0 +1,47 @@
+{
+  "notice": "Synthetic demonstration residents only. These are invented personas used to show the system end to end; they are not real people and contain no real personal data.",
+  "residents": [
+    {
+      "id": "demo-a",
+      "scenario": "A — clear case, practical limitation",
+      "name": "Sam",
+      "text": "I lost my warehouse job about six months ago. I've got a bad back now so I can't do heavy lifting, but I really want to get back into work. I could use some help updating my CV.",
+      "profile": { "borough": "Bolton", "age_band": "25-49", "has_health_condition_or_disability": true, "employment_status": "unemployed" }
+    },
+    {
+      "id": "demo-b",
+      "scenario": "B — too little information, needs a clarifying question",
+      "name": "Alex",
+      "text": "Hi, I think I need some help but I'm not really sure where to start.",
+      "profile": { "borough": "Bolton" }
+    },
+    {
+      "id": "demo-c",
+      "scenario": "C — career changer wanting to retrain",
+      "name": "Priya",
+      "text": "I've worked in retail for ten years as a sales assistant and I'm good with customers and work well in a team. I'd like to retrain and get into IT, maybe start with a digital skills course. I'd prefer face to face support near me.",
+      "profile": { "borough": "Bolton", "age_band": "25-49", "digital_confidence": "low" }
+    },
+    {
+      "id": "demo-d",
+      "scenario": "D — returning carer, lost confidence",
+      "name": "Joan",
+      "text": "I'm a full-time carer for my mum. I used to do admin work years ago. I've lost my confidence and I'd like help updating my CV and some interview practice. Evenings would suit me best around my caring.",
+      "profile": { "borough": "Bolton", "age_band": "50-64", "employment_status": "economically_inactive" }
+    },
+    {
+      "id": "demo-e",
+      "scenario": "E — health condition, wants suitable work and adjustments",
+      "name": "Marcus",
+      "text": "I have a health condition that affects what I can do physically, but I want to stay in work. I'm employed at the moment and worried about keeping my job. I'd like to know about adjustments and any support.",
+      "profile": { "borough": "Bolton", "age_band": "25-49", "has_health_condition_or_disability": true, "employment_status": "employed" }
+    },
+    {
+      "id": "demo-f",
+      "scenario": "F — would match a time-limited / closed programme",
+      "name": "Dan",
+      "text": "I'm 22 and on Universal Credit. Someone mentioned a scheme that paid for young people's job placements and I wondered if I could still get on something like that. I'm looking for work in a warehouse or driving.",
+      "profile": { "borough": "Bolton", "age_band": "18-24", "employment_status": "unemployed", "receives_benefits": true }
+    }
+  ]
+}

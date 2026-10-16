@@ -71,6 +71,11 @@ def identity(url):
 
 def check_port(port):
     with socket.socket() as connection:
+        if os.name != "nt":
+            # Recently closed sockets can remain in TIME_WAIT after a restart.
+            # This still rejects an active listener; avoid Windows' different
+            # SO_REUSEADDR semantics, which can permit listener collisions.
+            connection.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         try:
             connection.bind(("127.0.0.1", port))
         except PermissionError as error:
@@ -113,10 +118,10 @@ def main():
             if any(process.poll() is not None for process in processes):
                 raise RuntimeError("An ADJUST server stopped during startup. Check its output above.")
             if identity(backend_url) and identity(frontend_url):
-                # Confirm the employer page is ready as well as the proxy.
+                # Confirm the two-sided page is ready as well as the proxy.
                 with urllib.request.urlopen(frontend_url, timeout=20) as response:
                     if response.status != 200:
-                        raise RuntimeError("The ADJUST employer page is not ready.")
+                        raise RuntimeError("The ADJUST page is not ready.")
                 print(f"\nADJUST is ready: {frontend_url}\nIndependent API: {backend_url}/docs\nKeep this terminal open. Ctrl+C stops ADJUST.\n", flush=True)
                 if not args.no_open:
                     webbrowser.open(frontend_url)

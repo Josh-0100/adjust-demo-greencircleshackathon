@@ -1,0 +1,17 @@
+[project]
+name = "adjust-ai-public-demo"
+version = "0.1.0"
+description = "Vercel runtime for the existing Adjust AI integrated application"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "fastapi==0.115.12",
+  "SQLAlchemy==2.0.40",
+  "alembic==1.15.2",
+  "pydantic==2.11.3",
+  "pydantic-settings==2.8.1",
+  "PyYAML==6.0.2",
+  "httpx==0.28.1",
+]
+
+[tool.vercel]
+entrypoint = "api.index:app"

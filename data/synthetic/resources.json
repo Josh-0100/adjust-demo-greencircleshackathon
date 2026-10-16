@@ -1,0 +1,110 @@
+[
+  {
+    "key": "housing-guide", "title": "Fictional housing support navigator", "category": "Housing and wellbeing", "module_id": "service-navigator",
+    "description": "A demonstration support pathway for cold homes, damp, rent worries and housing concerns.",
+    "content": "SYNTHETIC DEMONSTRATION ONLY. The fictional housing navigator listens to concerns about cold homes, damp, mould, rent or homelessness. A human adviser reviews the circumstances, confirms which approved services exist, and explains referral options. This record does not establish eligibility, funding, opening hours or a real contact address. Residents should use their council's official website to verify real support.",
+    "skills": [], "next_steps": ["Describe your housing concerns to a trained adviser.", "Check your council's official website for current housing support.", "Ask staff to confirm eligibility and referral options."]
+  },
+  {
+    "key": "money-guide", "title": "Fictional money and energy advice pathway", "category": "Money and bills", "module_id": "service-navigator",
+    "description": "A fictional route to human guidance on energy bills, budgeting, debt and benefits questions.",
+    "content": "SYNTHETIC DEMONSTRATION ONLY. This money guidance pathway covers energy bills, debt, budgeting, income and benefit questions. It suggests collecting relevant paperwork and discussing options with a qualified adviser. It cannot confirm financial assistance or eligibility. No benefit amount, grant availability, contact detail or council policy is represented here.",
+    "skills": [], "next_steps": ["Prepare a brief description of the bill or benefit issue.", "Use official council or accredited advice channels to verify support.", "Ask a qualified adviser to review your circumstances."]
+  },
+  {
+    "key": "waste-guide", "title": "Fictional waste enquiry guide", "category": "Waste and recycling", "module_id": "service-navigator",
+    "description": "A demonstration checklist for missed bins, rubbish and recycling questions.",
+    "content": "SYNTHETIC DEMONSTRATION ONLY. The waste guide helps prepare a missed bin collection or recycling enquiry. Record the type of collection and when the problem happened, without sharing unnecessary personal information. Confirm actual collection schedules and report channels on the official council website. This record supplies no operational timetable.",
+    "skills": [], "next_steps": ["Note the collection type and the date of the issue.", "Verify the real council reporting channel.", "Submit the report through the approved channel."]
+  },
+  {
+    "key": "office-opportunity", "title": "Fictional office support trainee opportunity", "category": "Employment and skills", "module_id": "employment",
+    "description": "A fictional office pathway that values communication, digital literacy and spreadsheets.",
+    "content": "SYNTHETIC DEMONSTRATION ONLY. This office support trainee example involves customer service, email, record keeping and spreadsheets. Catalogue skills: communication, digital literacy and spreadsheets. Retail customer service experience may provide relevant transferable skills. This is not a vacancy; there is no employer, pay offer, application deadline or hiring decision. A careers adviser should validate a real opportunity.",
+    "skills": ["communication", "digital literacy", "spreadsheets"], "next_steps": ["Review your transferable customer service skills.", "Discuss digital and spreadsheet training with an adviser.", "Search verified vacancy sources before applying."]
+  },
+  {
+    "key": "care-opportunity", "title": "Fictional care support pathway", "category": "Employment and skills", "module_id": "employment",
+    "description": "An illustrative care pathway requiring communication, teamwork and care experience.",
+    "content": "SYNTHETIC DEMONSTRATION ONLY. This care support pathway highlights communication, teamwork and care experience. A real care role may involve employer checks and training that must be confirmed by the employer. It is not an advertised vacancy and does not certify a resident's suitability or qualifications. Ask a careers adviser to identify approved training and verified roles.",
+    "skills": ["communication", "teamwork", "care"], "next_steps": ["Discuss interests and care experience with an adviser.", "Confirm any real role's checks and training requirements.", "Explore verified care training and vacancies."]
+  },
+  {
+    "key": "green-opportunity", "title": "Fictional green construction pathway", "category": "Employment and skills", "module_id": "employment",
+    "description": "A demonstration retrofit and construction pathway using practical skills and health and safety.",
+    "content": "SYNTHETIC DEMONSTRATION ONLY. This green construction and retrofit example values practical skills, repair experience and health and safety training. It can support a discussion of transferable DIY or building experience. It is not a live job, apprenticeship or certification scheme. Verify real opportunities and qualification requirements with an approved provider.",
+    "skills": ["practical skills", "health and safety"], "next_steps": ["List practical experience you can evidence.", "Discuss safety training with a qualified provider.", "Verify a real green construction opportunity."]
+  },
+  {
+    "key": "community-garden", "title": "Fictional community garden volunteering", "category": "Volunteering", "module_id": "community",
+    "description": "A fictional volunteer garden for growing skills, teamwork and meeting people.",
+    "content": "SYNTHETIC DEMONSTRATION ONLY. The community garden example welcomes discussion of volunteering, gardening, growing vegetables and meeting people. Example interests are gardening and teamwork. It is not a real organisation, venue or scheduled activity. A community coordinator must verify actual groups, access arrangements and availability before a referral.",
+    "skills": ["gardening", "teamwork"], "next_steps": ["Describe your volunteering interests.", "Ask a coordinator for verified local groups.", "Confirm availability and accessibility with the real group."]
+  },
+  {
+    "key": "community-pantry", "title": "Fictional community food support resource", "category": "Community support", "module_id": "community",
+    "description": "A demonstration local food support and pantry referral for a human coordinator to review.",
+    "content": "SYNTHETIC DEMONSTRATION ONLY. This community food support example helps residents discuss food worries or a pantry referral. A human coordinator checks available local support, access requirements and current contact channels. No real food service, opening time, address or eligibility rule is supplied.",
+    "skills": [], "next_steps": ["Tell a support coordinator what help you need.", "Confirm real local food support through official directories.", "Check current arrangements before visiting."]
+  },
+  {
+    "key": "community-connections", "title": "Fictional neighbourhood connections group", "category": "Community activity", "module_id": "community",
+    "description": "An illustrative way to explore social activities and reduce loneliness.",
+    "content": "SYNTHETIC DEMONSTRATION ONLY. This neighbourhood connections example supports residents who feel lonely, want to meet people or join a community activity. Discuss interests, mobility needs and accessibility with a coordinator. This fictional group has no real venue, timetable, organiser or guaranteed availability.",
+    "skills": [], "next_steps": ["Choose the activities you would enjoy.", "Ask for a verified accessible local group.", "Confirm arrangements with the real organiser."]
+  },
+  {
+    "key": "roads-triage", "title": "Fictional highways triage checklist", "category": "Roads and public space", "module_id": "triage",
+    "description": "A staff review checklist for potholes, pavements and public-space hazards.",
+    "content": "SYNTHETIC DEMONSTRATION ONLY. A pothole, damaged road, pavement or cycle hazard can be categorised for highways review. Staff verify the location, potential danger and reporting route before deciding priority. Possible duplicate reports are suggestions only and must not be automatically merged. This checklist is not a council repair policy or repair-time promise.",
+    "skills": [], "next_steps": ["Describe the hazard and location without entering a dangerous area.", "Ask staff to verify the reporting channel and urgency.", "Review possible duplicate reports before taking action."]
+  },
+  {
+    "key": "housing-triage", "title": "Fictional housing triage checklist", "category": "Housing and wellbeing", "module_id": "triage",
+    "description": "A reviewed routing checklist for damp, mould, cold homes and rent concerns.",
+    "content": "SYNTHETIC DEMONSTRATION ONLY. Housing concerns such as damp, mould, cold homes, rent or risk of homelessness should be reviewed by trained staff. Staff verify the resident's needs, any immediate safety issue and appropriate referral route. The system cannot approve housing support, determine legal obligations or assess benefit eligibility.",
+    "skills": [], "next_steps": ["Prepare a clear description of the housing issue.", "Flag immediate safety concerns to a trained staff member.", "Have a human confirm the correct support and referral route."]
+  },
+  {
+    "key": "waste-triage", "title": "Fictional neighbourhood service triage", "category": "Waste and recycling", "module_id": "triage",
+    "description": "A demonstration routing guide for waste, rubbish and missed collection reports.",
+    "content": "SYNTHETIC DEMONSTRATION ONLY. Waste, recycling, rubbish and missed bin collection reports can be prepared for neighbourhood service review. Staff check the collection type, date and actual reporting process. Priority, route and duplicate matches remain subject to staff review; no response time is promised.",
+    "skills": [], "next_steps": ["Record the collection type and reported date.", "Ask staff to confirm the real reporting route.", "Check a suggested duplicate before combining reports."]
+  },
+  {
+    "key": "digital-learning", "title": "Fictional digital office skills course", "category": "Learning and retraining", "module_id": "learning",
+    "description": "An illustrative pathway covering digital literacy, email and spreadsheets for office work.",
+    "content": "SYNTHETIC DEMONSTRATION ONLY. The digital office course example covers digital literacy, email and spreadsheets. The suggested learning pathway is reflect on existing skills, select an approved course, practise a task and review progress with an adviser. This is not a real course booking, qualification or funding offer; confirm actual options with an approved provider.",
+    "skills": ["digital literacy", "spreadsheets"], "next_steps": ["Reflect on current computer and email confidence.", "Find a verified beginner digital or spreadsheet course.", "Practise a small office task and discuss progress with an adviser."]
+  },
+  {
+    "key": "care-learning", "title": "Fictional care and teamwork learning pathway", "category": "Learning and retraining", "module_id": "learning",
+    "description": "A demonstration learning route for communication, teamwork and care skills.",
+    "content": "SYNTHETIC DEMONSTRATION ONLY. This care learning pathway includes communication, teamwork and introductory care skills. A trained adviser assesses which real course could fit the resident's goal. The example does not grant a qualification or guarantee entry to employment. The resident can track skills reflection, course selection, practice and adviser review.",
+    "skills": ["communication", "teamwork", "care"], "next_steps": ["Discuss your care learning goal with an adviser.", "Confirm a verified provider and course requirements.", "Track practice and arrange a human progress review."]
+  },
+  {
+    "key": "green-learning", "title": "Fictional green construction skills course", "category": "Learning and retraining", "module_id": "learning",
+    "description": "An illustrative training pathway in practical skills and health and safety for retrofit.",
+    "content": "SYNTHETIC DEMONSTRATION ONLY. This green construction and retrofit training example helps discuss practical skills and health and safety learning. A real approved provider must confirm course content, entry requirements, dates and funding. Progress can be recorded as reflection, course selection, practical activity and adviser review. It is not a recognised qualification.",
+    "skills": ["practical skills", "health and safety"], "next_steps": ["Reflect on practical experience and safety needs.", "Discuss verified training with an approved provider.", "Complete a safe supervised activity and review learning."]
+  },
+  {
+    "key": "warm-home-plan", "title": "Fictional warm home advice plan", "category": "Warm homes assessment", "module_id": "custom",
+    "description": "A reviewed demonstration plan for cold homes and household vulnerability concerns.",
+    "content": "SYNTHETIC DEMONSTRATION ONLY. A cold home concern can be recorded in a structured warm-home checklist with housing type, damp, energy bills and household vulnerability flags. A trained adviser reviews risk, confirms approved support and agrees safe next steps. The checklist is not a health diagnosis, grant decision or legal assessment. Do not attempt unverified building repairs based on this example.",
+    "skills": [], "next_steps": ["Record the concerns and any urgent safety issue.", "Ask a trained housing or energy adviser to review the case.", "Verify real support options and agree safe next steps."]
+  },
+  {
+    "key": "damp-review", "title": "Fictional damp and mould review pathway", "category": "Warm homes assessment", "module_id": "custom",
+    "description": "A fictional inspection referral discussion for damp and mould concerns.",
+    "content": "SYNTHETIC DEMONSTRATION ONLY. Damp and mould concerns require human review of the circumstances and the appropriate approved reporting or inspection route. The checklist can record whether a household has additional vulnerability concerns. It does not provide medical diagnosis, building instructions or a legal determination. A qualified professional must confirm any practical intervention.",
+    "skills": [], "next_steps": ["Describe damp or mould concerns clearly.", "Ask staff to verify the appropriate inspection or reporting route.", "Seek qualified advice before attempting an intervention."]
+  },
+  {
+    "key": "energy-budget", "title": "Fictional energy bills review plan", "category": "Warm homes assessment", "module_id": "custom",
+    "description": "A demonstration review plan for energy costs and support navigation.",
+    "content": "SYNTHETIC DEMONSTRATION ONLY. The energy bills plan collects a resident's support goals without requiring account numbers or financial credentials. A human adviser discusses budgeting, confirms current approved advice and reviews any referral. It cannot promise funding, recommend financial products or decide eligibility.",
+    "skills": [], "next_steps": ["Summarise the energy bill concern without account details.", "Confirm qualified advice and official support sources.", "Have an adviser review the plan before taking consequential action."]
+  }
+]

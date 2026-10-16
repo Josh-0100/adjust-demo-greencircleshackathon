@@ -50,3 +50,17 @@ The sample review date must be updated if testing after that date. One to three 
 Errors: 422 for invalid inputs/selections/review; 409 for unsafe, incomplete or insufficiently supported plans; 413 for requests over 16 KB; safe 503 if the service cannot complete a request. Validation responses omit the original input. No errors include provider bodies or credentials. Results have `Cache-Control: no-store`. Request size is bounded even without a Content-Length header.
 
 PDF is a frontend browser print facility, not a separate API endpoint. No plan file is written by the backend.
+
+## Current two-sided UI contract — 16 October 2026
+
+These stateless endpoints are additive; the compatibility routes above remain available. No case, invitation or return link is stored.
+
+- `GET /case/catalogue` returns `{employee_needs:[{id,text}], employer_needs:[{id,text}]}`. Text is authored work language only.
+- `POST /case/prepare` accepts `{role:'employee'|'employer', description, support_kind:'health'|'carer'|'both', business_size:'under_50'|'50_249'|'250_plus'|null, role_context, practicalities, tried}`. Description is 20–4,000 characters; other free-text fields are at most 700. Default support category is health. All text is safety-checked before suggestions. Returns `{status:'review'|'urgent'|'emergency',needs:[{id,text}],safety}`; no original text appears. Unsafe input returns no needs.
+- `POST /case/plan` accepts `{employee:{reviewed:true,need_ids:string[],support_kind},employer:{reviewed:true,need_ids:string[],business_size},review_date:'YYYY-MM-DD'}`. Both sides are mandatory. Lists allow zero to ten unique catalogue IDs in the correct role; unknown IDs and extra fields fail. Review date must be after today. Returns `{title,created_on,review_date,start_now:[{id,title,detail,url}],options:[...],conversation:{opening,questions,agree},help:[...],legal_note,disclaimer}`. The employer's reviewed constraints and the employee's reviewed needs affect the authored plan. It contains no private description or condition name.
+
+The browser handoff is `{v:1,starter:'employee'|'employer',employee?,employer?,review_date?}`, base64 encoded under `#case=`. It carries only the same reviewed enum/ID contributions, never free text or cost figures. The encoder allowlists fields and validates values against the catalogue. The decoder rejects unexpected fields, unknown IDs, invalid roles/categories/sizes and oversized/malformed payloads. It does not authenticate people or prove their agreement. The fragment is removed from the current address on entry. Reviewed links are bearer-readable and cannot be recalled after copying.
+
+The second person creates the combined plan and copies a return link containing both reviewed contributions; the starter follows it to regenerate the same draft. There is no server session, synchronisation, persisted token or automatic update. Reloading the cleared URL starts over. Strict reviewed flags are demo checks, not production identity/access controls.
+
+The cost comparison has no API. All figures remain local to its component and unmount on leaving it; `.no-print` excludes the entire screen. Browser print export includes only the combined-plan article and does not write a backend PDF.

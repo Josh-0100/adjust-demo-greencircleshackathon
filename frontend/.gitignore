@@ -1,0 +1,8 @@
+node_modules/
+.next/
+.next-validation/
+test-results/
+playwright-report/
+coverage/
+*.tsbuildinfo
+.env.local

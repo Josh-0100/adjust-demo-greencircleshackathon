@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'ADJUST · Better work, together',
-  description: 'A workplace adjustments assistant for Bolton employers. Practical options, official sources, and an employee-led conversation.',
+  title: 'Adjust AI · Better work, together',
+  description: 'Bring employee and employer perspectives together in one private, practical workplace conversation plan. A fictional Bolton demo.',
   robots: { index: false, follow: false },
 };
 export default function Layout({ children }: Readonly<{ children: React.ReactNode }>) {

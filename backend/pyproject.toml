@@ -1,0 +1,11 @@
+[project]
+name = "civicforge-backend"
+version = "0.1.0"
+description = "Configurable civic workflows with grounded retrieval and human review"
+requires-python = ">=3.11,<3.14"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-q"
+

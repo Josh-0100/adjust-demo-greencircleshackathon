@@ -1,3 +1,31 @@
+# Two-sided flow validation — 16 October 2026
+
+Executed on the final two-sided implementation, using fictional inputs only:
+
+| Check | Command / result |
+| --- | --- |
+| Backend + legacy compatibility | From backend: `../../../backend/.venv/bin/python -m pytest -q` — **99 passed**, one existing Starlette/AnyIO deprecation warning |
+| TypeScript | From frontend: `npm run typecheck` — passed |
+| Frontend units | `npm test` — **60 passed**: API6, old workspace4, handoff codec40, new workspace4, cost comparison6 |
+| Production build | `NEXT_TELEMETRY_DISABLED=1 ADJUST_BUILD_DIR=.next-check npm run build` — passed, root14.7KB / first-load117KB |
+| Live browser workflows | `ADJUST_TEST_URL=http://127.0.0.1:3001 ADJUST_BROWSER_CHANNEL=chrome npm run test:e2e` — **8 passed in19.2s** |
+| Real PDF output | Chromium confirmed a valid PDF and exactly **one A4 page** for both health and all10 employee/all7 employer needs with health+carer support |
+| Launcher restart | New local pair ready on3001/8766; stopped test pair3186/8786. Unix port preflight reuses a recently closed port and still rejects an active listener |
+
+Browser coverage includes both initiating roles, read-only received needs, replacing/removing work needs, no plan before both contributions, original-tab and new-tab return links, invalid/private payload exclusion, absence of local/session storage, stripped hashes, reload clearing, keyboard/mobile reflow, employee/employer crisis stops, private cost figures excluded from network/links/print and erased on leaving the screen, and renewal of a return link whose review date is due.
+
+Tests inspect decoded handoffs for fictional private markers/condition names and inspect actual plan request bodies. Unit coverage includes pending plan completion after pagehide, strict handoff allowlisting, input bounds, source safety and business-size/carer guidance. Both-party flags are demonstration checks; they do not authenticate people or establish real consent.
+
+PDF artifacts (ignored output) are under `frontend/test-results/adjust-employee-starts-rev-8b23b--same-private-one-page-plan-chromium/combined-health-plan.pdf` and `adjust-all-reviewed-needs--128e2-produce-a-real-one-page-PDF-chromium/combined-all-needs-health-and-carer-plan.pdf`. Browser print settings and other engines remain unverified; no accessible-PDF certification.
+
+Failures found and resolved: default Playwright browser build was unavailable, so installed Chrome was selected without downloads; same-path fragment navigation initially failed to reopen a return link and now has a guarded hashchange handler; expired review dates now have an explicit renewal form; two text assertions were corrected to compare textContent consistently and the updated Bolton title. Initial CSS append and a small cleanup command used incorrect relative paths and made no edits; paths were corrected. Initial build CSS support warning was fixed. The launcher originally misidentified TIME_WAIT as an occupied port; Unix SO_REUSEADDR fixes immediate restart while retaining occupied-listener rejection. Native Windows remains untested.
+
+Official guidance was checked against primary pages; no independent legal/clinical validation, clinical safety accuracy claim, live external model call, production identity/access control, deployment or Git push is part of this change. The local rule catalogue can miss or oversimplify needs; people must review it. Copied links/PDFs retain their reviewed information outside the active page.
+
+---
+
+The earlier employer-only validation below is historical evidence for compatibility, not the current two-sided screen set.
+
 # Executed validation — 16 October 2026
 
 Final complete command, from `modules/adjust`:

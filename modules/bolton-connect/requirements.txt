@@ -1,0 +1,9 @@
+# Bolton Connect runs on the same runtime as the CivicForge backend.
+# If the repo's backend/.venv exists, scripts/run.sh reuses it; otherwise these
+# are the only dependencies needed. Persistence uses the Python standard
+# library (sqlite3), so no ORM is required for standalone operation.
+fastapi>=0.110
+uvicorn[standard]>=0.29
+pydantic>=2.6
+pydantic-settings>=2.2
+httpx>=0.27

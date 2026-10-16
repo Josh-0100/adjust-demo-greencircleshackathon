@@ -1,0 +1,33 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "services": {
+    "web": {
+      "root": "frontend",
+      "framework": "nextjs",
+      "buildCommand": "ADJUST_VERCEL_MULTI_SERVICE=1 NEXT_PUBLIC_HOSTED_DEMO=1 npm run build"
+    },
+    "workplace": {
+      "root": "modules/adjust/frontend",
+      "framework": "nextjs",
+      "buildCommand": "ADJUST_VERCEL_MULTI_SERVICE=1 ADJUST_BASE_PATH=/modules/adjust ADJUST_EMBEDDED=1 npm run build"
+    },
+    "api": {
+      "root": ".",
+      "framework": "fastapi",
+      "entrypoint": "api.index:app",
+      "functions": {
+        "api/index.py": {
+          "includeFiles": "{backend/app/**,backend/alembic/**,backend/alembic.ini,config/challenge_config.yaml,data/synthetic/**,modules/bolton-connect/backend/bolton_api/**,modules/bolton-connect/frontend/**,modules/bolton-connect/data/*.json,modules/bolton-connect/prompts/**,modules/adjust/backend/adjust_api/**,modules/adjust/knowledge/**}",
+          "excludeFiles": "{frontend/**,modules/adjust/frontend/**,**/tests/**,**/__pycache__/**,**/*.pyc}",
+          "maxDuration": 60
+        }
+      }
+    }
+  },
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": { "service": "api" } },
+    { "source": "/module-assets/bolton-connect/(.*)", "destination": { "service": "api" } },
+    { "source": "/modules/adjust(.*)", "destination": { "service": "workplace" } },
+    { "source": "/(.*)", "destination": { "service": "web" } }
+  ]
+}
