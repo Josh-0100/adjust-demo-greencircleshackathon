@@ -190,3 +190,9 @@ Local extraction/safety rules are heuristics, not validated clinical triage or a
 3. `docs/api-contract.md` — request/response and status behaviour.
 4. `docs/validation.md` — exact test evidence and limitations.
 5. `PROJECT_LOG.md` — implementation history.
+
+## ADJUST production hosting handoff — 16 October 2026
+
+Public ADJUST: https://adjust-workplace-assistant.vercel.app. GitHub deployment source is commit `73dbc785ea9d0f8e4568a7b7523596ec3268610c`. Only module deployment metadata/entry points and documentation changed; the original root static demo remains preserved. Public API health returned 200 and all seven browser workflows passed, including one-page PDF printing.
+
+Hosting uses Vercel Services: Next.js in `frontend/` and FastAPI through `api/index.py`, with module-root `vercel.json` and `pyproject.toml`. For future repository-linked builds, use root `modules/adjust`. This deployment does not merge ADJUST into Bolton Connect or the host UI. See `docs/vercel-deployment.md` for project IDs, exact verification command and the pending GitHub Login Connection required for automatic deployments.

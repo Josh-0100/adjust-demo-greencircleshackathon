@@ -6,6 +6,8 @@ An independent CIVICFORGE AI module for small employers. Describe work barriers,
 
 ## Open ADJUST
 
+**Live demonstration:** [Open ADJUST](https://adjust-workplace-assistant.vercel.app). The Next.js frontend and FastAPI API run together on Vercel. See [deployment details](docs/vercel-deployment.md).
+
 Double-click **Open ADJUST.command** on macOS or **Open ADJUST.bat** on Windows, inside this folder. Or run:
 
 ```sh
