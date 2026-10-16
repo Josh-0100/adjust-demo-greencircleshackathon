@@ -6,7 +6,7 @@ Implemented **ADJUST — Bolton Workplace Adjustments Assistant** as an independ
 
 Repository: `/Users/ankit/Documents/Hackathon 16 oct/civicforge-ai`
 
-**All implementation owned by this work is inside `modules/adjust/`.** No other AI/subagent/chat was contacted. No external model call was used. The module's working files are uncommitted; there is no ADJUST commit SHA to cherry-pick yet. The repository HEAD observed when this handoff was prepared is `eb3cc95`; that is not an ADJUST delivery commit.
+**All implementation owned by this work is inside `modules/adjust/`.** No other AI/subagent/chat was contacted. No external model call was used. The implementation is published as commit `a987adddeb8f7131e23cb1e174b3f3547e79a4cc` on `main` in `Josh-0100/adjust-demo-greencircleshackathon`. That commit contains the 49 module files and an additive destination README update, preserving its original static demo. Publication used a separate checkout; the original CIVICFORGE workspace's Git state remains unchanged. Its original observed HEAD was `eb3cc95`.
 
 ADJUST currently has its own UI on **3001**, API on **8766**, launchers, test runner and source catalogue. It has not been registered in the host module registry or embedded in the host layout. Shared-host integration remains a separate change.
 
@@ -127,7 +127,7 @@ test-results/    .runtime/      .env
 
 The development `frontend/node_modules` entry on this Mac is a symlink to the host's installed dependencies. It is not a portable dependency bundle; let the launcher prepare dependencies at the destination. Python can similarly reuse the installed host virtualenv locally, but ADJUST has its own requirements and fallback environment preparation.
 
-To review or commit this work independently, select only `modules/adjust/`; review the root's other modified files separately. No commit, branch, PR or deployment was created in this chat.
+To review or commit this work independently, select only `modules/adjust/`; review the root's other modified files separately. The implementation commit was created in a separate publishing checkout and pushed to the user-specified repository. No PR, new branch or deployment configuration was created.
 
 ## Launch and reproduce validation
 
