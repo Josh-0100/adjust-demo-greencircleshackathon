@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Adjust: practical help for Bolton's small employers to keep people with health conditions in work. Hackathon prototype.">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Adjust Demo</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap">
+</head>
+<body>
+<style>
+/* Layout: council-service shell — header band, input panel left, tabbed results right; stacks on phones */
+:root{
+  /* Palette from the Adjust pitch deck: navy, cream, peach, burnt orange, teal */
+  --bg:#F5F2EB; --surface:#FAF9F5; --sunk:#EFEBE2; --fg:#132539; --muted:#54606C; --line:#E1DCD0;
+  --blue:#132539; --blue-strong:#1E6E77; --on-blue:#FFFFFF; --navy:#132539; --on-navy:#FFFFFF; --navy-muted:#F1995D;
+  --tint:#FBE3D1; --gold:#C85E21; --gold-tint:#FBE3D1; --focus:#C85E21; --peach:#F1995D;
+  --ok:#1E6E77; --ok-tint:#DDEDEE;
+  --font:'Public Sans', 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0E1B29; --surface:#132539; --sunk:#0F1E2E; --fg:#EEE9DC; --muted:#A9B4BF; --line:#2A4058;
+  --blue:#F1995D; --blue-strong:#F6B486; --on-blue:#132539; --navy:#1D344F; --on-navy:#EEE9DC; --navy-muted:#F1995D;
+  --tint:#3A2A22; --gold:#F1995D; --gold-tint:#3A2A22; --focus:#F1995D; --peach:#F1995D; --ok:#7CC7CD; --ok-tint:#173A40; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E1B29; --surface:#132539; --sunk:#0F1E2E; --fg:#EEE9DC; --muted:#A9B4BF; --line:#2A4058;
+  --blue:#F1995D; --blue-strong:#F6B486; --on-blue:#132539; --navy:#1D344F; --on-navy:#EEE9DC; --navy-muted:#F1995D;
+  --tint:#3A2A22; --gold:#F1995D; --gold-tint:#3A2A22; --focus:#F1995D; --peach:#F1995D; --ok:#7CC7CD; --ok-tint:#173A40; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--font);font-size:16px;line-height:1.55}
+a{color:var(--blue-strong)}
+h1,h2,h3{text-wrap:balance;line-height:1.2;margin:0}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.gut{padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+.inner{max-width:1240px;margin:0 auto}
+header.top{background:var(--surface);border-top:6px solid var(--peach);border-bottom:1px solid var(--line)}
+header.top .inner{display:flex;flex-wrap:wrap;align-items:center;gap:10px 20px;padding-block:14px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:22px;color:var(--fg)}
+.badge-proto{font-size:13px;font-weight:600;background:var(--gold-tint);border:1px solid var(--gold);color:var(--fg);border-radius:999px;padding:3px 12px}
+.demo-note{margin-left:auto;font-size:13px;color:var(--muted);max-width:420px}
+main .inner{display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start;padding-block:28px 56px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px}
+.input{flex:1 1 360px;min-width:0;padding:22px;display:flex;flex-direction:column;gap:18px;position:sticky;top:env(safe-area-inset-top,0px)}
+.results{flex:999 1 560px;min-width:0;display:flex;flex-direction:column;gap:18px}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-strong);margin:0}
+label.lbl, legend.lbl{display:block;font-weight:700;margin:0 0 6px;padding:0}
+textarea, select{width:100%;font:inherit;color:var(--fg);background:var(--surface);border:2px solid var(--line);border-radius:8px;padding:10px 12px}
+textarea{resize:vertical;min-height:130px}
+textarea:focus, select:focus{border-color:var(--blue)}
+.row2{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px}
+fieldset{border:0;margin:0;padding:0}
+.radios{display:flex;flex-wrap:wrap;gap:4px 18px}
+.radios label{display:flex;align-items:center;gap:8px;min-height:40px}
+.radios input{width:18px;height:18px;accent-color:var(--blue)}
+.scen{display:flex;flex-wrap:wrap;gap:8px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 20px;border-radius:8px;font:inherit;font-weight:700;cursor:pointer;border:2px solid var(--blue);text-decoration:none}
+.btn-primary{background:var(--blue);color:var(--on-blue)}
+.btn-primary:hover{background:var(--blue-strong);border-color:var(--blue-strong)}
+.btn-ghost{background:var(--surface);color:var(--blue-strong)}
+.btn-ghost:hover{background:var(--tint)}
+.chip{min-height:40px;padding:0 14px;border-radius:999px;font:inherit;font-size:14px;font-weight:600;cursor:pointer;border:2px solid var(--line);background:var(--surface);color:var(--fg)}
+.chip:hover{border-color:var(--blue)}
+.chip[aria-pressed="true"]{background:var(--navy);color:var(--on-navy);border-color:var(--navy)}
+.hint{font-size:13px;color:var(--muted);margin:4px 0 0}
+.understood{padding:20px 22px;display:flex;flex-direction:column;gap:12px}
+.facts{display:flex;flex-wrap:wrap;gap:8px}
+.fact{background:var(--sunk);border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:14px}
+.fact b{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.ask{background:var(--tint);border:2px solid var(--blue);border-radius:14px;padding:20px 22px;display:flex;flex-direction:column;gap:12px}
+.ask p.q{font-size:19px;font-weight:700;margin:0}
+.warn{display:flex;gap:12px;align-items:flex-start;background:var(--gold-tint);border:1px solid var(--gold);border-radius:12px;padding:12px 16px;font-size:15px}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;border-bottom:2px solid var(--line)}
+.tab{font:inherit;font-weight:700;background:none;border:0;color:var(--muted);padding:12px 14px;min-height:46px;cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px}
+.tab[aria-selected="true"]{color:var(--fg);border-bottom-color:var(--peach)}
+.tabpanel{display:flex;flex-direction:column;gap:14px}
+.adj{padding:18px 20px;display:flex;flex-direction:column;gap:6px}
+.adj-head{display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center}
+.adj-head h3{font-size:18px;flex:1 1 220px}
+.pill{font-size:12px;font-weight:700;border-radius:999px;padding:3px 10px;background:var(--sunk);border:1px solid var(--line);color:var(--fg);white-space:nowrap}
+.pill.fund{background:var(--tint);border-color:var(--blue)}
+.pill.ok{background:var(--ok-tint);border-color:var(--ok);color:var(--fg)}
+.src{font-size:13px;color:var(--muted);margin:0}
+.agree{display:flex;align-items:center;gap:8px;font-weight:600;font-size:15px;min-height:40px;width:fit-content;cursor:pointer}
+.agree input{width:18px;height:18px;accent-color:var(--blue)}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.box{padding:18px 20px}
+.box h3{font-size:18px;margin-bottom:6px}
+.navy{background:var(--navy);color:var(--on-navy);border-color:var(--navy)}
+.navy .eyebrow{color:var(--navy-muted)}
+.big{font-size:40px;font-weight:800;line-height:1.1;margin:4px 0;color:var(--peach)}
+ol.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px;counter-reset:s}
+ol.steps li{display:grid;grid-template-columns:34px 1fr;gap:12px;counter-increment:s}
+ol.steps li::before{content:counter(s);width:34px;height:34px;border-radius:50%;background:var(--blue);color:var(--on-blue);font-weight:800;display:flex;align-items:center;justify-content:center}
+ol.steps .you{font-size:14px;font-weight:700;color:var(--blue-strong);margin:2px 0 0}
+.draft{background:var(--sunk);border:1px dashed var(--muted);border-radius:12px;padding:16px 18px}
+.draft p{margin:0 0 12px}
+.rules{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;font-size:15px}
+.script{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:10px}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:var(--sunk)}
+.scroll{overflow-x:auto}
+.empcopy{border:2px solid var(--navy);border-radius:14px;padding:20px 22px;background:var(--surface)}
+:root[data-theme="dark"] .empcopy{border-color:var(--blue)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .empcopy{border-color:var(--blue)}}
+.toast{font-size:14px;font-weight:700;color:var(--ok);min-height:20px}
+footer{border-top:1px solid var(--line);background:var(--surface);font-size:14px;color:var(--muted)}
+footer .inner{padding-block:18px;display:flex;flex-wrap:wrap;gap:8px 24px}
+@media (max-width:760px){.input{position:static}}
+@media (prefers-reduced-motion: no-preference){.fade{animation:fade .25s ease-out}@keyframes fade{from{opacity:.4}to{opacity:1}}}
+</style>
+
+<header class="top gut">
+  <div class="inner">
+    <span class="brand">
+      <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="8" fill="var(--navy)"></rect><path d="M9 24 L17 9 L25 24 M12.5 18.5 H21.5" stroke="var(--peach)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      Adjust
+    </span>
+    <span class="badge-proto">Prototype · not an official council service</span>
+    <p class="demo-note">Demo mode: descriptions are read with keyword matching. In the full build an AI model reads them. Eligibility is always decided by fixed rules.</p>
+  </div>
+</header>
+
+<main class="gut">
+  <div class="inner">
+    <form class="panel input" id="form" novalidate>
+      <div>
+        <p class="eyebrow">Try a scenario</p>
+        <div class="scen" id="scenarios" style="margin-top:8px"></div>
+      </div>
+      <div>
+        <label class="lbl" for="desc">Describe the situation</label>
+        <textarea id="desc" rows="6"></textarea>
+        <p class="hint">Plain words are fine. Leave out names and medical detail you don't need.</p>
+      </div>
+      <div class="row2">
+        <div>
+          <label class="lbl" for="size">Business size</label>
+          <select id="size">
+            <option value="small">1 to 49 staff</option>
+            <option value="medium">50 to 249 staff</option>
+            <option value="large">250 or more staff</option>
+          </select>
+        </div>
+        <div>
+          <label class="lbl" for="tenure">Time in the job</label>
+          <select id="tenure">
+            <option value="new">Less than 6 weeks</option>
+            <option value="est" selected>6 weeks or more</option>
+          </select>
+        </div>
+      </div>
+      <fieldset>
+        <legend class="lbl">Right now, your employee is…</legend>
+        <div class="radios">
+          <label><input type="radio" name="status" id="st-working" value="working" checked> Working but struggling</label>
+          <label><input type="radio" name="status" id="st-off" value="off"> Off sick</label>
+          <label><input type="radio" name="status" id="st-return" value="returning"> Returning to work</label>
+        </div>
+      </fieldset>
+      <button class="btn btn-primary" type="submit">Build support plan</button>
+    </form>
+
+    <div class="results" id="results" aria-live="polite"></div>
+  </div>
+</main>
+
+<footer class="gut">
+  <div class="inner">
+    <span>Adjust gives ideas to discuss with your employee, not medical or legal advice. Free impartial advice: Acas, 0300 123 1100.</span>
+    <span>Scheme details last checked 16 Oct 2026. Nothing you type is stored.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+const SOURCES = {
+  hseMH:{name:'HSE: manual handling', url:'https://www.hse.gov.uk/msd/manual-handling/index.htm'},
+  hseDSE:{name:'HSE: display screen equipment', url:'https://www.hse.gov.uk/msd/dse/'},
+  hseStress:{name:'HSE: work-related stress', url:'https://www.hse.gov.uk/stress/'},
+  acasRA:{name:'Acas: reasonable adjustments', url:'https://www.acas.org.uk/reasonable-adjustments'},
+  acasMH:{name:'Acas: mental health at work', url:'https://www.acas.org.uk/supporting-mental-health-workplace'},
+  acasAbs:{name:'Acas: absence from work', url:'https://www.acas.org.uk/absence-from-work'},
+  atw:{name:'GOV.UK: Access to Work', url:'https://www.gov.uk/access-to-work'},
+  atwEmp:{name:'GOV.UK: Access to Work factsheet for employers', url:'https://www.gov.uk/government/publications/access-to-work-guide-for-employers/access-to-work-factsheet-for-employers'},
+  ssp:{name:'GOV.UK: Statutory Sick Pay', url:'https://www.gov.uk/statutory-sick-pay'},
+  fit:{name:'GOV.UK: fit notes', url:'https://www.gov.uk/government/collections/fit-note'},
+  dc:{name:'GOV.UK: Disability Confident', url:'https://www.gov.uk/government/collections/disability-confident-campaign'},
+  ww:{name:'Let\'s Keep Bolton Moving: WorkWell', url:'https://www.letskeepboltonmoving.co.uk'}
+};
+
+// Knowledge base: each passage has categories, job type it suits, optional barrier boost
+const KB = [
+  {id:'rotate', cats:['msk'], job:'physical', boost:['lifting','hours'], title:'Rotate tasks through the shift', body:'Swap the heaviest tasks with lighter ones in blocks, so the hardest work is spread out instead of lasting all day.', cost:'No cost', when:'This week', src:'hseMH'},
+  {id:'aids', cats:['msk'], job:'physical', boost:['lifting'], title:'Provide lifting or handling aids', body:'A trolley, sack truck or height-adjustable lift table cuts bending and carrying. Your employee can ask Access to Work to fund it.', cost:'Access to Work may fund', fund:true, when:'2 to 6 weeks', src:'atw'},
+  {id:'heights', cats:['msk'], job:'physical', boost:['lifting'], title:'Keep heavy items between knee and shoulder height', body:'Move the heaviest stock so it is not lifted from the floor or above the shoulder. This helps the whole team too.', cost:'Low cost', when:'This week', src:'hseMH'},
+  {id:'seat', cats:['msk','fatigue'], job:'physical', boost:['standing'], title:'Seating or a perching stool for standing work', body:'Let them sit or perch for tasks that don\'t need standing, and add an anti-fatigue mat where they stand.', cost:'Low cost', when:'This week', src:'acasRA'},
+  {id:'light', cats:['msk'], job:'physical', boost:[], title:'Temporary lighter duties', body:'Agree a set period on lighter tasks with a date to review it, so it doesn\'t drift into a permanent change nobody chose.', cost:'No cost', when:'This week', src:'acasRA'},
+  {id:'dse', cats:['msk'], job:'desk', boost:['screen'], title:'Workstation assessment', body:'Check chair, screen height, keyboard and mouse position with them. Employers must assess display screen work anyway.', cost:'No cost', when:'This week', src:'hseDSE'},
+  {id:'kit', cats:['msk'], job:'desk', boost:['screen'], title:'Specialist equipment or software', body:'An ergonomic keyboard, vertical mouse or voice-to-text software can take strain off hands and wrists. Access to Work may fund it.', cost:'Access to Work may fund', fund:true, when:'2 to 6 weeks', src:'atw'},
+  {id:'breaks', cats:['msk','fatigue'], job:'any', boost:['hours','standing'], title:'Short, regular breaks', body:'Agree short breaks to move, stretch or rest. Keep it informal and review it after four weeks.', cost:'No cost', when:'This week', src:'acasRA'},
+  {id:'checkin', cats:['mental'], job:'any', boost:[], title:'Regular private check-ins', body:'A short weekly one-to-one where they can say how things are going. Agree who they can go to if you\'re not around.', cost:'No cost', when:'This week', src:'acasMH'},
+  {id:'flex', cats:['mental','fatigue'], job:'any', boost:['hours','travel'], title:'Flexible start and finish times', body:'Moving hours around energy levels, medication or a difficult commute can make a full week possible again.', cost:'No cost', when:'This week', src:'acasRA'},
+  {id:'prior', cats:['mental'], job:'any', boost:['concentration','people'], title:'Clear written priorities', body:'Agree the week\'s priorities in writing and limit last-minute changes. It lowers pressure and helps concentration.', cost:'No cost', when:'This week', src:'acasMH'},
+  {id:'quiet', cats:['mental'], job:'any', boost:['people','concentration'], title:'A quiet space and time out', body:'Agree they can step away to a quiet room for a few minutes when they need to, without having to explain each time.', cost:'No cost', when:'This week', src:'acasMH'},
+  {id:'stressra', cats:['mental'], job:'any', boost:['hours'], title:'Look at workload and pressure', body:'Use HSE\'s stress Management Standards to look at demands, control and support in the role together.', cost:'No cost', when:'Next 2 weeks', src:'hseStress'},
+  {id:'hours', cats:['fatigue'], job:'any', boost:['hours'], title:'Reduced or rearranged hours', body:'Fewer hours, or the same hours over more days, for an agreed period. Put the pay effect in writing.', cost:'Varies', when:'Next 2 weeks', src:'acasRA'},
+  {id:'appts', cats:['fatigue','msk','mental'], job:'any', boost:[], title:'Time for medical appointments', body:'Agree how time for treatment and appointments will work, so they don\'t have to ask each time.', cost:'Low cost', when:'This week', src:'acasRA'},
+  {id:'home', cats:['fatigue','mental'], job:'desk', boost:['travel','hours'], title:'Some home working', body:'Where the role allows, a few days at home cuts travel and gives more control over rest.', cost:'No cost', when:'This week', src:'acasRA'},
+  {id:'phased', cats:['msk','mental','fatigue'], job:'any', boost:[], status:['off','returning'], title:'Phased return to work', body:'Start with shorter days or lighter tasks and build up over a few weeks, following any fit note advice.', cost:'Low cost', when:'Before they return', src:'acasAbs'}
+];
+
+const CAT_LABEL = {msk:'Back, joints or muscles', mental:'Mental health', fatigue:'Energy or long-term illness', other:'Not sure yet'};
+const BARRIER_LABEL = {lifting:'Lifting and carrying', standing:'Standing for long periods', concentration:'Concentration', hours:'Full shifts or long hours', travel:'Getting to work', people:'Busy or social parts of the job', screen:'Computer work'};
+const ROLES = [
+  {re:/(warehouse|picker|picking|forklift|loading|delivery|driver|courier|stock)/, label:'Warehouse or logistics', job:'physical'},
+  {re:/(construction|site|builder|labourer|joiner|plumber|electrician|scaffold)/, label:'Construction', job:'physical'},
+  {re:/(carer|care home|care worker|support worker|nurse)/, label:'Care', job:'physical'},
+  {re:/(kitchen|chef|cook|waiter|waitress|bar staff|barista|cafe|restaurant)/, label:'Hospitality', job:'physical'},
+  {re:/(shop|retail|till|cashier|shelf|store assistant)/, label:'Retail', job:'physical'},
+  {re:/(office|admin|receptionist|accounts|desk|computer|call centre|customer service|developer|designer|bookkeeper)/, label:'Office or admin', job:'desk'}
+];
+const CATS = {
+  msk:/(back|spine|knee|hip|joint|arthritis|shoulder|neck|wrist|rsi|sciatica|musculoskeletal|\bmsk\b)/,
+  mental:/(anxiety|anxious|stress|depress|panic|mental health|low mood|burn ?out|ptsd|\bocd\b|overwhelm)/,
+  fatigue:/(fatigue|tired|exhaust|long covid|chronic fatigue|multiple sclerosis|\bms\b|cancer|chemo|treatment|diabetes|heart condition|migraine|crohn|colitis|lupus|fibromyalgia)/
+};
+const BARRIERS = {lifting:/(lift|carry|heavy|bending)/, standing:/(standing|on (their|his|her) feet|walking)/, concentration:/(concentrat|focus|memory|forget|deadlines)/, hours:/(full shift|long hours|all day|early start|night shift|full day)/, travel:/(commute|travel|bus|train)/, people:/(customers|meetings|phone calls|on the phones)/, screen:/(screen|typing|keyboard|mouse|computer)/};
+
+const SCENARIOS = [
+  {label:'Back pain', size:'small', tenure:'est', status:'working', text:'Our warehouse picker has had back pain for a few months. They\'re still coming in but can\'t lift all day any more and have mentioned they might need some time off. They\'ve been with us 3 years.'},
+  {label:'Anxiety', size:'small', tenure:'est', status:'working', text:'One of our customer service team has been struggling with anxiety. Busy phone shifts and team meetings are hard for her and she\'s finding it difficult to concentrate. She\'s worried about losing her job.'},
+  {label:'Several conditions', size:'medium', tenure:'est', status:'returning', text:'Our admin assistant has arthritis in her hands which makes typing painful, and has also had depression. She\'s been signed off for two weeks and is due back next month. Her commute is long.'},
+  {label:'Vague', size:'small', tenure:'new', status:'working', text:'One of my new staff isn\'t coping very well.'}
+];
+
+const $ = (s)=>document.querySelector(s);
+function el(tag, attrs, ...kids){
+  const n = document.createElement(tag);
+  for (const k in (attrs||{})){
+    const v = attrs[k];
+    if (v === false || v == null) continue;
+    if (k === 'class') n.className = v;
+    else if (k.startsWith('on')) n.addEventListener(k.slice(2), v);
+    else n.setAttribute(k, v === true ? '' : v);
+  }
+  for (const c of kids.flat()){ if (c == null || c === false) continue; n.append(c.nodeType ? c : document.createTextNode(String(c))); }
+  return n;
+}
+
+let state = {picked:null, tab:'plan', agreed:{}, lastKey:''};
+
+function analyse(text){
+  const t = text.toLowerCase();
+  const cats = Object.keys(CATS).filter(c=>CATS[c].test(t));
+  const role = ROLES.find(r=>r.re.test(t));
+  const barriers = Object.keys(BARRIERS).filter(b=>BARRIERS[b].test(t));
+  const timeOff = /(time off|off sick|signed off|sick leave|absence)/.test(t);
+  return {cats, role, barriers, timeOff, words:t.split(/\s+/).filter(Boolean).length};
+}
+
+function inputs(){
+  return {text:$('#desc').value.trim(), size:$('#size').value, tenure:$('#tenure').value, status:(document.querySelector('input[name="status"]:checked')||{}).value||'working'};
+}
+
+function choose(a, inp){
+  const job = a.role ? a.role.job : 'any';
+  const scored = KB.map(k=>{
+    if (!k.cats.some(c=>a.cats.includes(c))) return null;
+    if (k.job !== 'any' && job !== 'any' && k.job !== job) return null;
+    if (k.job !== 'any' && job === 'any' && k.job === 'desk') return null;
+    if (k.status && !k.status.includes(inp.status)) return null;
+    let s = k.cats.filter(c=>a.cats.includes(c)).length * 2;
+    s += k.boost.filter(b=>a.barriers.includes(b)).length * 3;
+    if (k.status) s += 4;
+    if (k.job !== 'any') s += 1;
+    return {k, s};
+  }).filter(Boolean).sort((x,y)=>y.s-x.s);
+  return scored.slice(0,6).map(x=>x.k);
+}
+
+function schemes(a, inp, adj){
+  const out = []; const rules = [];
+  const needsFund = adj.some(k=>k.fund);
+  let share;
+  if (inp.tenure === 'new'){ share = {big:'Up to 100%', text:'Access to Work will consider paying up to 100% when someone applies within 6 weeks of starting.'}; rules.push('In post under 6 weeks → Access to Work considers funding up to 100%'); }
+  else if (inp.size === 'small'){ share = {big:'£0', text:'Your share of equipment and premises costs, as a business with fewer than 50 staff.'}; rules.push('Under 50 staff and in post 6+ weeks → no employer cost share on equipment'); }
+  else if (inp.size === 'medium'){ share = {big:'£500', text:'Cost-share threshold for 50 to 249 staff. Access to Work refunds up to 80% of approved costs between £500 and £10,000, and normally all costs above £10,000.'}; rules.push('50–249 staff and in post 6+ weeks → £500 threshold, then up to 80% refunded to £10,000'); }
+  else { share = {big:'£1,000', text:'Cost-share threshold for 250+ staff. Access to Work refunds up to 80% of approved costs between £1,000 and £10,000, and normally all costs above £10,000.'}; rules.push('250+ staff and in post 6+ weeks → £1,000 threshold, then up to 80% refunded to £10,000'); }
+  out.push({id:'atw', tag: needsFund ? 'Funding for this plan' : 'Funding', title:'Access to Work', body:'A government grant for support beyond the reasonable adjustments you\'re expected to make. Your employee applies; you\'ll be contacted with their consent. Cost sharing only applies to equipment and premises changes.', meta:'Helpline 0800 121 7479', src:'atwEmp', status:'Likely eligible'});
+  rules.push('In paid work in Great Britain → can apply to Access to Work (employee applies, not employer)');
+  if (a.cats.includes('mental')){ out.push({id:'mhss', tag:'Mental health', title:'Access to Work Mental Health Support Service', body:'Free, confidential support for employees with mental health needs, including a support plan. There is no employer cost share.', meta:'Applied for through Access to Work', src:'atw', status:'Likely eligible'}); rules.push('Mental health mentioned → Mental Health Support Service suggested'); }
+  if (inp.status !== 'working' || a.timeOff){ out.push({id:'ssp', tag:'If they need time off', title:'Statutory Sick Pay', body:'Since 6 April 2026, SSP is paid from the first day of sickness with no earnings threshold. It is the lower of £123.25 a week or 80% of average weekly earnings, for up to 28 weeks. Your payroll provider works out the amount.', meta:'Rule shown, not calculated', src:'ssp', status:'Applies by law'}); rules.push((inp.status!=='working'?'Off sick or returning':'Time off mentioned') + ' → explain SSP rules (no amount calculated)'); }
+  if (inp.status !== 'working'){ out.push({id:'fit', tag:'Returning to work', title:'Fit notes', body:'If a GP says your employee "may be fit for work", the note can suggest changes such as amended duties, altered hours or a phased return. Use it as the starting point.', meta:'Issued by GPs and other clinicians', src:'fit', status:'Check their note'}); rules.push('Off sick or returning → check the fit note first'); }
+  out.push({id:'ww', tag:'Local · free', title:'WorkWell Bolton', body:'Free, voluntary support from a Work and Health Coach, with help for MSK and mental health and advice on workplace adjustments. Employers can refer, with the employee\'s agreement.', meta:'01204 338981 · GetBoltonWorking@bolton.gov.uk · check it is taking referrals', src:'ww', status:'Bolton residents'});
+  rules.push('Bolton employer → WorkWell Bolton offered, with a reminder to check availability');
+  out.push({id:'dc', tag:'For your business', title:'Disability Confident', body:'A free government scheme that helps employers recruit and keep disabled people and people with health conditions.', meta:'Sign up on GOV.UK', src:'dc', status:'Optional'});
+  return {list:out, share, rules};
+}
+
+function scriptFor(a){
+  const lines = ['"I\'ve noticed things have been harder lately. I want to make work easier for you, not push you out."', '"Which parts of the job are hardest right now? Is there anything that already helps?"'];
+  if (a.cats.includes('mental')) lines.push('"You don\'t have to tell me anything you\'re not comfortable with. What would make the biggest difference day to day?"');
+  if (a.cats.includes('msk')) lines.push('"Are there tasks or times of day that make the pain worse? Let\'s start there."');
+  if (a.cats.includes('fatigue')) lines.push('"When in the day do you have most energy? Let\'s see if we can fit the work around that."');
+  lines.push('"Here are a few things we could try. Which would help most?"', '"Let\'s try it for four weeks and check in. Come to me sooner if it isn\'t working."');
+  return lines;
+}
+
+function renderScenarios(){
+  const wrap = $('#scenarios'); wrap.textContent = '';
+  SCENARIOS.forEach((s,i)=>wrap.append(el('button',{type:'button', class:'chip', id:'scen-'+i, onclick:()=>{ loadScenario(s); run(); }}, s.label)));
+}
+function loadScenario(s){
+  $('#desc').value = s.text; $('#size').value = s.size; $('#tenure').value = s.tenure;
+  const r = document.querySelector('input[name="status"][value="'+s.status+'"]'); if (r) r.checked = true;
+  state.picked = null; state.tab = 'plan';
+}
+
+function run(){
+  const inp = inputs(); const res = $('#results'); res.textContent = '';
+  if (!inp.text){ res.append(el('div',{class:'panel understood'}, el('h2',{style:'font-size:22px'},'Describe the situation to start'), el('p',{style:'margin:0;color:var(--muted)'},'Or pick one of the scenarios on the left.'))); return; }
+  const a = analyse(inp.text);
+  if (state.picked && !a.cats.length) a.cats = state.picked === 'other' ? ['msk','mental','fatigue'] : [state.picked];
+
+  // What Adjust understood (the AI step)
+  const facts = el('div',{class:'facts'},
+    el('span',{class:'fact'}, el('b',{},'Role'), a.role ? a.role.label : 'Not stated'),
+    el('span',{class:'fact'}, el('b',{},'Health'), a.cats.length ? a.cats.map(c=>CAT_LABEL[c]).join(', ') : 'Not clear yet'),
+    el('span',{class:'fact'}, el('b',{},'Hardest parts'), a.barriers.length ? a.barriers.map(b=>BARRIER_LABEL[b]).join(', ') : 'Not stated'),
+    el('span',{class:'fact'}, el('b',{},'Status'), {working:'Working but struggling', off:'Off sick', returning:'Returning to work'}[inp.status] + (a.timeOff && inp.status==='working' ? ' · may need time off' : ''))
+  );
+  res.append(el('section',{class:'panel understood fade', 'aria-label':'What Adjust understood'}, el('p',{class:'eyebrow'},'What Adjust understood'), facts, el('p',{class:'hint', style:'margin:0'},'Wrong? Edit the description and rebuild.')));
+
+  if (!a.cats.length){
+    const opts = [['msk','Physical tasks: lifting, standing, moving'],['mental','Stress, anxiety or low mood'],['fatigue','Tiredness, energy or treatment'],['other','Something else or not sure']];
+    const chips = el('div',{class:'scen'}, opts.map(([id,l])=>el('button',{type:'button', class:'chip', 'aria-pressed': String(state.picked===id), onclick:()=>{ state.picked = id; run(); }}, l)));
+    res.append(el('section',{class:'ask fade', 'aria-label':'Question'}, el('p',{class:'eyebrow'},'One quick question'), el('p',{class:'q'},'What are they finding hardest at work?'), chips, el('p',{style:'margin:0;font-size:14px'},'Adjust asks instead of guessing, so the ideas fit the job.')));
+    return;
+  }
+
+  const adj = choose(a, inp);
+  const key = inp.text + '|' + inp.size + inp.tenure + inp.status + state.picked;
+  if (key !== state.lastKey){ state.agreed = {}; adj.forEach((k,i)=>{ if (i<3) state.agreed[k.id] = true; }); state.lastKey = key; }
+  const sch = schemes(a, inp, adj);
+
+  res.append(el('div',{class:'warn', role:'note'}, el('strong',{},'Agree these with your employee.'), ' They are ideas, not medical or legal advice. If there is a fit note, follow it first.'));
+
+  const tabs = [['plan','Support plan'],['help','Help and funding'],['summary','Summary'],['how','How it decided']];
+  const tablist = el('div',{class:'tabs', role:'tablist', 'aria-label':'Results'}, tabs.map(([id,l])=>el('button',{type:'button', role:'tab', class:'tab', id:'tab-'+id, 'aria-selected':String(state.tab===id), 'aria-controls':'panel-'+id, onclick:()=>{ state.tab = id; run(); }}, l)));
+  res.append(tablist);
+  const panel = el('div',{class:'tabpanel fade', role:'tabpanel', id:'panel-'+state.tab, 'aria-labelledby':'tab-'+state.tab});
+  res.append(panel);
+
+  const srcLine = (k)=>{ const s = SOURCES[k]; return el('p',{class:'src'},'Source: ', el('a',{href:s.url, target:'_blank', rel:'noopener'}, s.name), ' · checked 16 Oct 2026'); };
+
+  if (state.tab === 'plan'){
+    panel.append(el('h2',{style:'font-size:24px'},'Adjustments to consider'));
+    adj.forEach(k=>{
+      const cb = el('input',{type:'checkbox', id:'agree-'+k.id, checked: !!state.agreed[k.id], onchange:(e)=>{ state.agreed[k.id] = e.target.checked; }});
+      panel.append(el('article',{class:'panel adj'},
+        el('div',{class:'adj-head'}, el('h3',{},k.title), el('span',{class:'pill'+(k.fund?' fund':'')},k.cost), el('span',{class:'pill'},k.when)),
+        el('p',{style:'margin:0'},k.body), srcLine(k.src),
+        el('label',{class:'agree', for:'agree-'+k.id}, cb, 'Add to our plan')));
+    });
+    panel.append(el('section',{class:'panel box'}, el('h3',{},'Starting the conversation'), el('p',{class:'src', style:'margin-bottom:10px'},'Somewhere private. Listen more than you talk.'), el('ol',{class:'script'}, scriptFor(a).map(l=>el('li',{},l)))));
+    const fund = adj.some(k=>k.fund);
+    panel.append(el('section',{class:'panel box'}, el('h3',{},'Next steps'), el('div',{class:'cols'},
+      el('div',{}, el('p',{class:'eyebrow', style:'margin-bottom:6px'},'This week'), el('ul',{style:'margin:0;padding-left:20px'}, el('li',{},'Have the conversation'), el('li',{},'Start the no-cost changes'))),
+      el('div',{}, el('p',{class:'eyebrow', style:'margin-bottom:6px'},'Next 2 weeks'), el('ul',{style:'margin:0;padding-left:20px'}, fund ? el('li',{},'Employee applies to Access to Work') : null, el('li',{},'Offer a WorkWell Bolton referral'), inp.status!=='working' ? el('li',{},'Read the fit note together') : null)),
+      el('div',{}, el('p',{class:'eyebrow', style:'margin-bottom:6px'},'In 4 weeks'), el('ul',{style:'margin:0;padding-left:20px'}, el('li',{},'Review meeting'), el('li',{},'Update the plan'))))));
+    panel.append(el('div',{class:'scen'}, el('button',{type:'button', class:'btn btn-primary', onclick:()=>{state.tab='help'; run(); scrollToTabs();}}, 'Next: help and funding')));
+  }
+
+  if (state.tab === 'help'){
+    panel.append(el('div',{class:'cols'},
+      el('section',{class:'panel box navy'}, el('p',{class:'eyebrow'},'Your Access to Work cost share'), el('p',{class:'big'}, sch.share.big), el('p',{style:'margin:0'}, sch.share.text)),
+      el('section',{class:'panel box'}, el('h3',{},'Good to know'), el('ul',{style:'margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px'}, el('li',{},'Your employee applies. You can\'t apply for them.'), el('li',{},'No diagnosis is needed.'), el('li',{},'They can apply while off sick.'), el('li',{},'It won\'t pay for things bought before they applied.'), el('li',{},'Decisions can take months, so start free changes now.')))));
+    const fundItems = adj.filter(k=>k.fund).map(k=>k.title.toLowerCase());
+    const roleTxt = a.role ? 'I work in ' + a.role.label.toLowerCase() + '. ' : '';
+    const barrierTxt = a.barriers.length ? 'Because of my health I find ' + a.barriers.map(b=>BARRIER_LABEL[b].toLowerCase()).join(' and ') + ' hard. ' : 'My health condition affects how I do my job. ';
+    const agreedTxt = adj.filter(k=>state.agreed[k.id] && !k.fund).map(k=>k.title.toLowerCase());
+    const draft = roleTxt + barrierTxt + (agreedTxt.length ? 'My employer has agreed to ' + agreedTxt.slice(0,2).join(' and ') + '. ' : '') + (fundItems.length ? 'I\'m asking for help with ' + fundItems.join(' and ') + ' so I can keep doing my job.' : 'I\'d like to talk about what support could help me stay in work.');
+    const toast = el('p',{class:'toast', role:'status'});
+    const draftP = el('p',{id:'draft-text'}, draft);
+    panel.append(el('section',{class:'panel box'}, el('h3',{},'Access to Work: step by step'),
+      el('ol',{class:'steps', style:'margin-top:10px'},
+        el('li',{}, el('div',{}, el('strong',{},'Agree the reasonable adjustments first'), el('p',{style:'margin:0'},'Access to Work asks what you have already put in place.'), el('p',{class:'you'},'You: use the support plan tab'))),
+        el('li',{}, el('div',{}, el('strong',{},'Your employee checks they are eligible'), el('p',{style:'margin:0'},'In paid work (or about to start) and living in Great Britain.'), el('p',{class:'you'},'You: share this page with them'))),
+        el('li',{}, el('div',{}, el('strong',{},'Your employee applies online or by phone'), el('p',{style:'margin:0'},'They describe the job, what is hard, and what might help. Helpline: 0800 121 7479.'), el('p',{class:'you'},'You: give them the draft below and a named contact'))),
+        el('li',{}, el('div',{}, el('strong',{},'An adviser may contact you'), el('p',{style:'margin:0'},'Only with your employee\'s consent. There may be a workplace assessment.'), el('p',{class:'you'},'You: answer questions about the job and premises'))),
+        el('li',{}, el('div',{}, el('strong',{},'Buy, then claim back'), el('p',{style:'margin:0'},'Once the grant is agreed you buy the support and claim it back on the form you are sent.'), el('p',{class:'you'},'You: keep every receipt')))),
+      el('div',{class:'draft', style:'margin-top:16px'}, el('p',{style:'font-weight:800'},'Draft for your employee to adapt'), draftP,
+        el('div',{class:'scen'}, el('button',{type:'button', class:'btn btn-ghost', onclick:()=>copyText(draft, draftP, toast)}, 'Copy text')), toast),
+      srcLine('atwEmp')));
+    panel.append(el('h2',{style:'font-size:22px;margin-top:6px'},'Schemes that fit'));
+    panel.append(el('div',{class:'cols'}, sch.list.map(s=>el('article',{class:'panel box', style:'display:flex;flex-direction:column;gap:6px'},
+      el('p',{class:'eyebrow'}, s.tag), el('div',{class:'adj-head'}, el('h3',{style:'margin:0'}, s.title), el('span',{class:'pill ok'}, s.status)),
+      el('p',{style:'margin:0;flex:1'}, s.body), el('p',{class:'src', style:'font-weight:600;color:var(--fg)'}, s.meta), srcLine(s.src)))));
+  }
+
+  if (state.tab === 'summary'){
+    const agreed = adj.filter(k=>state.agreed[k.id]);
+    const today = new Date(2026, 9, 16); const review = new Date(today.getTime() + 28*864e5);
+    const fmt = (d)=>d.toLocaleDateString('en-GB',{day:'numeric', month:'short', year:'numeric'});
+    panel.append(el('section',{class:'panel', style:'overflow:hidden'},
+      el('div',{style:'background:var(--blue);color:var(--on-blue);padding:16px 20px;display:flex;flex-wrap:wrap;gap:4px 20px;align-items:baseline'}, el('h2',{style:'font-size:20px;flex:1 1 240px'},'Support plan · ' + (a.role ? a.role.label : 'Team member')), el('span',{style:'font-size:14px;font-weight:600'},'Created ' + fmt(today) + ' · Review ' + fmt(review))),
+      el('div',{style:'padding:18px 20px;display:flex;flex-direction:column;gap:16px'},
+        el('p',{style:'margin:0'}, 'Health area: ' + a.cats.map(c=>CAT_LABEL[c].toLowerCase()).join(', ') + '. The employee\'s name and medical details are kept off this page.'),
+        agreed.length ? el('div',{class:'scroll'}, el('table',{}, el('caption',{style:'text-align:left;font-weight:800;padding-bottom:8px'},'Agreed adjustments'), el('thead',{}, el('tr',{}, el('th',{scope:'col'},'Adjustment'), el('th',{scope:'col'},'Cost'), el('th',{scope:'col'},'Start'))), el('tbody',{}, agreed.map(k=>el('tr',{}, el('td',{},k.title), el('td',{},k.cost), el('td',{},k.when)))))) : el('p',{class:'warn', style:'margin:0'},'Nothing added yet. Tick "Add to our plan" on the support plan tab.'),
+        el('div',{class:'cols'},
+          el('div',{}, el('p',{class:'eyebrow', style:'margin-bottom:4px'},'Schemes to start'), el('ul',{style:'margin:0;padding-left:20px'}, sch.list.filter(s=>s.id!=='dc').map(s=>el('li',{},s.title)))),
+          el('div',{}, el('p',{class:'eyebrow', style:'margin-bottom:4px'},'Contacts'), el('ul',{style:'margin:0;padding-left:20px'}, el('li',{},'Acas: 0300 123 1100'), el('li',{},'Access to Work: 0800 121 7479'), el('li',{},'WorkWell Bolton: 01204 338981')))))));
+    const empLines = agreed.filter(k=>!k.fund).map(k=>k.title);
+    const empFund = agreed.filter(k=>k.fund);
+    const empText = 'What we\'ve agreed to help you keep working:\n' + (empLines.length ? empLines.map(l=>'• ' + l).join('\n') : '• We\'ll agree changes together') + (empFund.length ? '\n\nYour next step: apply to Access to Work for ' + empFund.map(k=>k.title.toLowerCase()).join(' and ') + '. Call 0800 121 7479 or apply on GOV.UK.' : '') + '\n\nWe\'ll review this together on ' + fmt(review) + '. If something isn\'t working, tell me any time. You can also get free, private support from WorkWell Bolton on 01204 338981.';
+    const toast = el('p',{class:'toast', role:'status'});
+    const pre = el('p',{style:'white-space:pre-line;margin:0'}, empText);
+    panel.append(el('section',{class:'empcopy'}, el('p',{class:'eyebrow'},'Employee copy'), el('h3',{style:'font-size:20px;margin:4px 0 10px'},'A plain-language version for them to keep'), pre, el('div',{class:'scen', style:'margin-top:14px'}, el('button',{type:'button', class:'btn btn-ghost', onclick:()=>copyText(empText, pre, toast)}, 'Copy employee copy')), toast));
+  }
+
+  if (state.tab === 'how'){
+    panel.append(el('div',{class:'cols'},
+      el('section',{class:'panel box'}, el('p',{class:'eyebrow'},'Step 1 · Understanding (AI)'), el('h3',{},'Reads the description'), el('p',{style:'margin:0 0 8px'},'Pulls out the role, the health area and the hardest parts of the job. If it can\'t, it asks a question.'), el('p',{class:'src'},'In this demo: keyword matching. Full build: a language model, limited to filling these fields.')),
+      el('section',{class:'panel box'}, el('p',{class:'eyebrow'},'Step 2 · Suggestions (knowledge base)'), el('h3',{},'Only from checked guidance'), el('p',{style:'margin:0 0 8px'},'Ideas come from ' + KB.length + ' passages drawn from Acas, HSE and GOV.UK, each with its source and a "last checked" date.'), el('p',{class:'src'},'Nothing is made up on the fly.')),
+      el('section',{class:'panel box'}, el('p',{class:'eyebrow'},'Step 3 · Eligibility (rules)'), el('h3',{},'Fixed rules, not AI'), el('p',{style:'margin:0'},'Scheme matches and cost shares come from written rules that a named owner keeps up to date.'))));
+    panel.append(el('section',{class:'panel box'}, el('h3',{},'Rules applied to this case'), el('ul',{class:'rules'}, sch.rules.map(r=>el('li',{},r)))));
+    panel.append(el('section',{class:'panel box'}, el('h3',{},'Safeguards'), el('ul',{class:'rules'}, el('li',{},'No diagnosis and no legal advice; every answer points to Acas.'), el('li',{},'No sick pay or benefit amounts calculated.'), el('li',{},'No names or employee records stored.'), el('li',{},'Every scheme shows when it was last checked.'))));
+  }
+}
+
+function scrollToTabs(){ const t = document.querySelector('.tabs'); if (t) t.scrollIntoView({block:'start', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'}); }
+function copyText(text, node, toast){
+  const done = ()=>{ toast.textContent = 'Copied'; setTimeout(()=>{ toast.textContent=''; }, 2000); };
+  const fallback = ()=>{ const r = document.createRange(); r.selectNodeContents(node); const s = getSelection(); s.removeAllRanges(); s.addRange(r); toast.textContent = 'Text selected. Copy it with your keyboard.'; };
+  try { navigator.clipboard.writeText(text).then(done, fallback); } catch(e){ fallback(); }
+}
+
+$('#form').addEventListener('submit', (e)=>{ e.preventDefault(); state.picked = null; run(); scrollToTabs(); });
+renderScenarios();
+loadScenario(SCENARIOS[0]);
+run();
+})();
+</script>
+</body>
+</html>
