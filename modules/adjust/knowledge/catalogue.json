@@ -1,0 +1,559 @@
+{
+  "pages": {
+    "acas-adjust": [
+      "Acas",
+      "https://www.acas.org.uk/reasonable-adjustments"
+    ],
+    "acas-request": [
+      "Acas",
+      "https://www.acas.org.uk/reasonable-adjustments/asking-for-reasonable-adjustments"
+    ],
+    "acas-meeting": [
+      "Acas",
+      "https://www.acas.org.uk/reasonable-adjustments/having-a-meeting"
+    ],
+    "acas-record": [
+      "Acas",
+      "https://www.acas.org.uk/reasonable-adjustments/reviewing-reasonable-adjustments-and-keeping-a-record"
+    ],
+    "acas-mental": [
+      "Acas",
+      "https://www.acas.org.uk/reasonable-adjustments/mental-health-adjustments"
+    ],
+    "acas-oh": [
+      "Acas",
+      "https://www.acas.org.uk/using-occupational-health-at-work"
+    ],
+    "hse-overview": [
+      "Health and Safety Executive",
+      "https://www.hse.gov.uk/msd/manual-handling/index.htm"
+    ],
+    "hse-avoid": [
+      "Health and Safety Executive",
+      "https://www.hse.gov.uk/msd/manual-handling/avoid-hazardous-manual-handling.htm"
+    ],
+    "hse-assess": [
+      "Health and Safety Executive",
+      "https://www.hse.gov.uk/msd/manual-handling/assess-manual-handling.htm"
+    ],
+    "hse-reduce": [
+      "Health and Safety Executive",
+      "https://www.hse.gov.uk/msd/manual-handling/reduce-risk-injury.htm"
+    ],
+    "hse-dse": [
+      "Health and Safety Executive",
+      "https://www.hse.gov.uk/msd/dse/assessment.htm"
+    ],
+    "hse-stress": [
+      "Health and Safety Executive",
+      "https://www.hse.gov.uk/stress/standards/overview.htm"
+    ],
+    "gov-adjust": [
+      "GOV.UK",
+      "https://www.gov.uk/reasonable-adjustments-for-disabled-workers"
+    ],
+    "atw-overview": [
+      "GOV.UK",
+      "https://www.gov.uk/access-to-work"
+    ],
+    "atw-eligibility": [
+      "GOV.UK",
+      "https://www.gov.uk/access-to-work/eligibility"
+    ],
+    "atw-apply": [
+      "GOV.UK",
+      "https://www.gov.uk/access-to-work/apply"
+    ],
+    "nhs-urgent": [
+      "NHS",
+      "https://www.nhs.uk/nhs-services/mental-health-services/where-to-get-urgent-help-for-mental-health/"
+    ]
+  },
+  "entries": [
+    {
+      "id": "A01",
+      "topic": "Start with the individual",
+      "summary": "Discuss the person's own workplace barriers and ideas. Practicality, cost and effects on other people's safety need individual consideration.",
+      "official_url": "https://www.acas.org.uk/reasonable-adjustments",
+      "publisher": "Acas",
+      "last_reviewed": "2026-10-16",
+      "content_owner": "ADJUST prototype content maintainer (editorial role)",
+      "scenarios": [
+        "general"
+      ],
+      "verification_status": "verified",
+      "evidence_locator": "What 'reasonable' means",
+      "review_due": "2027-01-14"
+    },
+    {
+      "id": "A02",
+      "topic": "Different ways of working",
+      "summary": "Possible changes include redistributing duties, adapting equipment, changing the workplace or varying working arrangements.",
+      "official_url": "https://www.acas.org.uk/reasonable-adjustments",
+      "publisher": "Acas",
+      "last_reviewed": "2026-10-16",
+      "content_owner": "ADJUST prototype content maintainer (editorial role)",
+      "scenarios": [
+        "general",
+        "mobility"
+      ],
+      "verification_status": "verified",
+      "evidence_locator": "Examples of reasonable adjustments",
+      "review_due": "2027-01-14"
+    },
+    {
+      "id": "A03",
+      "topic": "Listen without assumptions",
+      "summary": "Arrange a discussion, listen to the employee and consider their particular circumstances without making assumptions.",
+      "official_url": "https://www.acas.org.uk/reasonable-adjustments/asking-for-reasonable-adjustments",
+      "publisher": "Acas",
+      "last_reviewed": "2026-10-16",
+      "content_owner": "ADJUST prototype content maintainer (editorial role)",
+      "scenarios": [
+        "general"
+      ],
+      "verification_status": "verified",
+      "evidence_locator": "How the employer should handle a reasonable adjustment request",
+      "review_due": "2027-01-14"
+    },
+    {
+      "id": "A04",
+      "topic": "Agree specialist input",
+      "summary": "Discuss occupational health input together when advice is needed to identify suitable changes.",
+      "official_url": "https://www.acas.org.uk/reasonable-adjustments/asking-for-reasonable-adjustments",
+      "publisher": "Acas",
+      "last_reviewed": "2026-10-16",
+      "content_owner": "ADJUST prototype content maintainer (editorial role)",
+      "scenarios": [
+        "general"
+      ],
+      "verification_status": "verified",
+      "evidence_locator": "How to decide what reasonable adjustments are needed",
+      "review_due": "2027-01-14"
+    },
+    {
+      "id": "A05",
+      "topic": "Prepare a supportive meeting",
+      "summary": "Agree a suitable time and place. Think about how to ask sensitively and explain what will happen next.",
+      "official_url": "https://www.acas.org.uk/reasonable-adjustments/having-a-meeting",
+      "publisher": "Acas",
+      "last_reviewed": "2026-10-16",
+      "content_owner": "ADJUST prototype content maintainer (editorial role)",
+      "scenarios": [
+        "general"
+      ],
+      "verification_status": "verified",
+      "evidence_locator": "Preparing for the meeting",
+      "review_due": "2027-01-14"
+    },
+    {
+      "id": "A06",
+      "topic": "Employee participation",
+      "summary": "Employer and employee should work together to agree adjustments. The employee can choose what they want to disclose.",
+      "official_url": "https://www.acas.org.uk/reasonable-adjustments/having-a-meeting",
+      "publisher": "Acas",
+      "last_reviewed": "2026-10-16",
+      "content_owner": "ADJUST prototype content maintainer (editorial role)",
+      "scenarios": [
+        "general"
+      ],
+      "verification_status": "verified",
+      "evidence_locator": "Having a meeting; Preparing for the meeting",
+      "review_due": "2027-01-14"
+    },
+    {
+      "id": "A07",
+      "topic": "Review changes regularly",
+      "summary": "Review arrangements together regularly and when the job, workplace or person's circumstances change.",
+      "official_url": "https://www.acas.org.uk/reasonable-adjustments/reviewing-reasonable-adjustments-and-keeping-a-record",
+      "publisher": "Acas",
+      "last_reviewed": "2026-10-16",
+      "content_owner": "ADJUST prototype content maintainer (editorial role)",
+      "scenarios": [
+        "general"
+      ],
+      "verification_status": "verified",
+      "evidence_locator": "Reviewing reasonable adjustments",
+      "review_due": "2027-01-14"
+    },
+    {
+      "id": "A08",
+      "topic": "Keep an agreed record",
+      "summary": "A record can capture work barriers, agreed changes and possible future needs, helping the employee communicate arrangements.",
+      "official_url": "https://www.acas.org.uk/reasonable-adjustments/reviewing-reasonable-adjustments-and-keeping-a-record",
+      "publisher": "Acas",
+      "last_reviewed": "2026-10-16",
+      "content_owner": "ADJUST prototype content maintainer (editorial role)",
+      "scenarios": [
+        "general"
+      ],
+      "verification_status": "verified",
+      "evidence_locator": "Keeping a record; Reasonable adjustments passports",
+      "review_due": "2027-01-14"
+    },
+    {
+      "id": "A09",
+      "topic": "Discuss breaks and hours",
+      "summary": "Shorter, more frequent breaks or flexible hours are possible mental health adjustments to consider individually.",
+      "official_url": "https://www.acas.org.uk/reasonable-adjustments/mental-health-adjustments",
+      "publisher": "Acas",
+      "last_reviewed": "2026-10-16",
+      "content_owner": "ADJUST prototype content maintainer (editorial role)",
+      "scenarios": [
+        "stress",
+        "fatigue"
+      ],
+      "verification_status": "verified",
+      "evidence_locator": "Working hours and patterns",
+      "review_due": "2027-01-14"
+    },
+    {
+      "id": "A10",
+      "topic": "Make workload manageable",
+      "summary": "Consider reviewing tasks and deadlines, splitting work into smaller tasks and agreeing regular support.",
+      "official_url": "https://www.acas.org.uk/reasonable-adjustments/mental-health-adjustments",
+      "publisher": "Acas",
+      "last_reviewed": "2026-10-16",
+      "content_owner": "ADJUST prototype content maintainer (editorial role)",
+      "scenarios": [
+        "stress",
+        "concentration"
+      ],
+      "verification_status": "verified",
+      "evidence_locator": "Changing someone's role and responsibilities; Additional support",
+      "review_due": "2027-01-14"
+    },
+    {
+      "id": "A11",
+      "topic": "Reduce distracting demands",
+      "summary": "A quieter workspace or a separate rest area may help. Suitability depends on the person and their work.",
+      "official_url": "https://www.acas.org.uk/reasonable-adjustments/mental-health-adjustments",
+      "publisher": "Acas",
+      "last_reviewed": "2026-10-16",
+      "content_owner": "ADJUST prototype content maintainer (editorial role)",
+      "scenarios": [
+        "stress",
+        "sensory"
+      ],
+      "verification_status": "verified",
+      "evidence_locator": "Changing the physical working environment",
+      "review_due": "2027-01-14"
+    },
+    {
+      "id": "A12",
+      "topic": "Agree communication preferences",
+      "summary": "Discuss preferred communication methods and predictable check-ins rather than assuming what will help.",
+      "official_url": "https://www.acas.org.uk/reasonable-adjustments/mental-health-adjustments",
+      "publisher": "Acas",
+      "last_reviewed": "2026-10-16",
+      "content_owner": "ADJUST prototype content maintainer (editorial role)",
+      "scenarios": [
+        "stress",
+        "communication"
+      ],
+      "verification_status": "verified",
+      "evidence_locator": "Reviewing working relationships and communication styles; Additional support",
+      "review_due": "2027-01-14"
+    },
+    {
+      "id": "O01",
+      "topic": "When occupational health may help",
+      "summary": "Occupational health can advise on work barriers, adjustments and returning after sickness absence, through an internal service or outside agency.",
+      "official_url": "https://www.acas.org.uk/using-occupational-health-at-work",
+      "publisher": "Acas",
+      "last_reviewed": "2026-10-16",
+      "content_owner": "ADJUST prototype content maintainer (editorial role)",
+      "scenarios": [
+        "general"
+      ],
+      "verification_status": "verified",
+      "evidence_locator": "Using occupational health at work",
+      "review_due": "2027-01-14"
+    },
+    {
+      "id": "O02",
+      "topic": "Permission for a doctor's report",
+      "summary": "An employer must obtain the worker's permission before contacting their doctor. Discuss the purpose and next steps first.",
+      "official_url": "https://www.acas.org.uk/using-occupational-health-at-work",
+      "publisher": "Acas",
+      "last_reviewed": "2026-10-16",
+      "content_owner": "ADJUST prototype content maintainer (editorial role)",
+      "scenarios": [
+        "general"
+      ],
+      "verification_status": "verified",
+      "evidence_locator": "Checking if your work uses occupational health",
+      "review_due": "2027-01-14"
+    },
+    {
+      "id": "H01",
+      "topic": "Manual handling risk hierarchy",
+      "summary": "Avoid hazardous handling where reasonably practicable, assess unavoidable handling and reduce remaining risks. There is no universal legal lifting-weight limit.",
+      "official_url": "https://www.hse.gov.uk/msd/manual-handling/index.htm",
+      "publisher": "Health and Safety Executive",
+      "last_reviewed": "2026-10-16",
+      "content_owner": "ADJUST prototype content maintainer (editorial role)",
+      "scenarios": [
+        "manual"
+      ],
+      "verification_status": "verified",
+      "evidence_locator": "Overview",
+      "review_due": "2027-01-14"
+    },
+    {
+      "id": "H02",
+      "topic": "Avoid unnecessary lifting",
+      "summary": "Redesign the task or movement of materials to remove hazardous handling where possible.",
+      "official_url": "https://www.hse.gov.uk/msd/manual-handling/avoid-hazardous-manual-handling.htm",
+      "publisher": "Health and Safety Executive",
+      "last_reviewed": "2026-10-16",
+      "content_owner": "ADJUST prototype content maintainer (editorial role)",
+      "scenarios": [
+        "manual"
+      ],
+      "verification_status": "verified",
+      "evidence_locator": "Avoid hazardous manual handling",
+      "review_due": "2027-01-14"
+    },
+    {
+      "id": "H03",
+      "topic": "Explore mechanical assistance",
+      "summary": "Appropriate mechanical aids can reduce or remove manual handling risks; the task and work layout affect what is suitable.",
+      "official_url": "https://www.hse.gov.uk/msd/manual-handling/avoid-hazardous-manual-handling.htm",
+      "publisher": "Health and Safety Executive",
+      "last_reviewed": "2026-10-16",
+      "content_owner": "ADJUST prototype content maintainer (editorial role)",
+      "scenarios": [
+        "manual"
+      ],
+      "verification_status": "verified",
+      "evidence_locator": "Avoid hazardous manual handling",
+      "review_due": "2027-01-14"
+    },
+    {
+      "id": "H04",
+      "topic": "Assess the whole handling task",
+      "summary": "Consider load, posture, frequency, travel distance, environment and individual capability when assessing unavoidable handling.",
+      "official_url": "https://www.hse.gov.uk/msd/manual-handling/assess-manual-handling.htm",
+      "publisher": "Health and Safety Executive",
+      "last_reviewed": "2026-10-16",
+      "content_owner": "ADJUST prototype content maintainer (editorial role)",
+      "scenarios": [
+        "manual"
+      ],
+      "verification_status": "verified",
+      "evidence_locator": "Assess manual handling you can't avoid",
+      "review_due": "2027-01-14"
+    },
+    {
+      "id": "H05",
+      "topic": "Involve the people doing the job",
+      "summary": "Workers and their representatives can identify difficult tasks and suggest practical ways of reducing handling risks.",
+      "official_url": "https://www.hse.gov.uk/msd/manual-handling/assess-manual-handling.htm",
+      "publisher": "Health and Safety Executive",
+      "last_reviewed": "2026-10-16",
+      "content_owner": "ADJUST prototype content maintainer (editorial role)",
+      "scenarios": [
+        "manual"
+      ],
+      "verification_status": "verified",
+      "evidence_locator": "Consult your workforce",
+      "review_due": "2027-01-14"
+    },
+    {
+      "id": "H06",
+      "topic": "Review loads and layout",
+      "summary": "Smaller loads, shorter carrying distances and less twisting or lifting from awkward heights can reduce risk.",
+      "official_url": "https://www.hse.gov.uk/msd/manual-handling/reduce-risk-injury.htm",
+      "publisher": "Health and Safety Executive",
+      "last_reviewed": "2026-10-16",
+      "content_owner": "ADJUST prototype content maintainer (editorial role)",
+      "scenarios": [
+        "manual"
+      ],
+      "verification_status": "verified",
+      "evidence_locator": "Reduce the risk of injury",
+      "review_due": "2027-01-14"
+    },
+    {
+      "id": "H07",
+      "topic": "Review handling pace",
+      "summary": "Consider changing routines that create excessive handling rates or tight deadlines as part of risk reduction.",
+      "official_url": "https://www.hse.gov.uk/msd/manual-handling/reduce-risk-injury.htm",
+      "publisher": "Health and Safety Executive",
+      "last_reviewed": "2026-10-16",
+      "content_owner": "ADJUST prototype content maintainer (editorial role)",
+      "scenarios": [
+        "manual"
+      ],
+      "verification_status": "verified",
+      "evidence_locator": "Reduce the risk of injury",
+      "review_due": "2027-01-14"
+    },
+    {
+      "id": "H08",
+      "topic": "Assess the workstation",
+      "summary": "Review equipment, furniture, work conditions and the job. Pain, discomfort or changes to workstation use can trigger reassessment.",
+      "official_url": "https://www.hse.gov.uk/msd/dse/assessment.htm",
+      "publisher": "Health and Safety Executive",
+      "last_reviewed": "2026-10-16",
+      "content_owner": "ADJUST prototype content maintainer (editorial role)",
+      "scenarios": [
+        "desk"
+      ],
+      "verification_status": "verified",
+      "evidence_locator": "Workstations and assessment",
+      "review_due": "2027-01-14"
+    },
+    {
+      "id": "H09",
+      "topic": "Have an assessor review results",
+      "summary": "A trained assessor should review workstation assessment results, clarify uncertainties and ensure problems are addressed.",
+      "official_url": "https://www.hse.gov.uk/msd/dse/assessment.htm",
+      "publisher": "Health and Safety Executive",
+      "last_reviewed": "2026-10-16",
+      "content_owner": "ADJUST prototype content maintainer (editorial role)",
+      "scenarios": [
+        "desk"
+      ],
+      "verification_status": "verified",
+      "evidence_locator": "DSE assessment software",
+      "review_due": "2027-01-14"
+    },
+    {
+      "id": "H10",
+      "topic": "Explore sources of work pressure",
+      "summary": "Consider demands, control, support, relationships, role and change when discussing work-related stress.",
+      "official_url": "https://www.hse.gov.uk/stress/standards/overview.htm",
+      "publisher": "Health and Safety Executive",
+      "last_reviewed": "2026-10-16",
+      "content_owner": "ADJUST prototype content maintainer (editorial role)",
+      "scenarios": [
+        "stress"
+      ],
+      "verification_status": "verified",
+      "evidence_locator": "What are the Management Standards?",
+      "review_due": "2027-01-14"
+    },
+    {
+      "id": "H11",
+      "topic": "Work together on improvements",
+      "summary": "Use discussion with employees and representatives to understand underlying causes and agree practical workplace improvements.",
+      "official_url": "https://www.hse.gov.uk/stress/standards/overview.htm",
+      "publisher": "Health and Safety Executive",
+      "last_reviewed": "2026-10-16",
+      "content_owner": "ADJUST prototype content maintainer (editorial role)",
+      "scenarios": [
+        "stress"
+      ],
+      "verification_status": "verified",
+      "evidence_locator": "What are the Management Standards?",
+      "review_due": "2027-01-14"
+    },
+    {
+      "id": "G01",
+      "topic": "Read the official duty guidance",
+      "summary": "GOV.UK explains the employer adjustment duty and examples. An individual legal assessment requires appropriate advice.",
+      "official_url": "https://www.gov.uk/reasonable-adjustments-for-disabled-workers",
+      "publisher": "GOV.UK",
+      "last_reviewed": "2026-10-16",
+      "content_owner": "ADJUST prototype content maintainer (editorial role)",
+      "scenarios": [
+        "general"
+      ],
+      "verification_status": "verified",
+      "evidence_locator": "Reasonable adjustments for workers with disabilities or health conditions",
+      "review_due": "2027-01-14"
+    },
+    {
+      "id": "G02",
+      "topic": "Disability Employment Adviser route",
+      "summary": "GOV.UK signposts the Disability Employment Adviser at the local Jobcentre Plus for adjustment advice.",
+      "official_url": "https://www.gov.uk/reasonable-adjustments-for-disabled-workers",
+      "publisher": "GOV.UK",
+      "last_reviewed": "2026-10-16",
+      "content_owner": "ADJUST prototype content maintainer (editorial role)",
+      "scenarios": [
+        "general"
+      ],
+      "verification_status": "verified",
+      "evidence_locator": "Get help and advice",
+      "review_due": "2027-01-14"
+    },
+    {
+      "id": "T01",
+      "topic": "Access to Work support",
+      "summary": "Depending on need, support may include equipment, support workers or mental health support. An application is not a funding guarantee.",
+      "official_url": "https://www.gov.uk/access-to-work",
+      "publisher": "GOV.UK",
+      "last_reviewed": "2026-10-16",
+      "content_owner": "ADJUST prototype content maintainer (editorial role)",
+      "scenarios": [
+        "referral"
+      ],
+      "verification_status": "verified",
+      "evidence_locator": "What Access to Work is",
+      "review_due": "2027-01-14"
+    },
+    {
+      "id": "T02",
+      "topic": "Check Access to Work criteria",
+      "summary": "The official criteria cover age, paid work, location and support needs. A diagnosis is not required to apply; ADJUST does not decide eligibility.",
+      "official_url": "https://www.gov.uk/access-to-work/eligibility",
+      "publisher": "GOV.UK",
+      "last_reviewed": "2026-10-16",
+      "content_owner": "ADJUST prototype content maintainer (editorial role)",
+      "scenarios": [
+        "referral"
+      ],
+      "verification_status": "verified",
+      "evidence_locator": "Eligibility; Your disability, illness or health condition",
+      "review_due": "2027-01-14"
+    },
+    {
+      "id": "T03",
+      "topic": "Official application route",
+      "summary": "The worker can use the official application page, including online and telephone routes and accessible-format information.",
+      "official_url": "https://www.gov.uk/access-to-work/apply",
+      "publisher": "GOV.UK",
+      "last_reviewed": "2026-10-16",
+      "content_owner": "ADJUST prototype content maintainer (editorial role)",
+      "scenarios": [
+        "referral"
+      ],
+      "verification_status": "verified",
+      "evidence_locator": "Apply online; Apply by phone",
+      "review_due": "2027-01-14"
+    },
+    {
+      "id": "N01",
+      "topic": "Immediate safety takes priority",
+      "summary": "Call 999 or go to A&E when life is at risk or someone cannot be kept safe. Pause the adjustment workflow.",
+      "official_url": "https://www.nhs.uk/nhs-services/mental-health-services/where-to-get-urgent-help-for-mental-health/",
+      "publisher": "NHS",
+      "last_reviewed": "2026-10-16",
+      "content_owner": "ADJUST prototype content maintainer (editorial role)",
+      "scenarios": [
+        "safety"
+      ],
+      "verification_status": "verified",
+      "evidence_locator": "Immediate action required",
+      "review_due": "2027-01-14"
+    },
+    {
+      "id": "N02",
+      "topic": "Urgent mental health advice",
+      "summary": "For urgent mental health help, contact NHS 111 and select the mental health option, or seek an urgent GP appointment.",
+      "official_url": "https://www.nhs.uk/nhs-services/mental-health-services/where-to-get-urgent-help-for-mental-health/",
+      "publisher": "NHS",
+      "last_reviewed": "2026-10-16",
+      "content_owner": "ADJUST prototype content maintainer (editorial role)",
+      "scenarios": [
+        "safety"
+      ],
+      "verification_status": "verified",
+      "evidence_locator": "Urgent advice",
+      "review_due": "2027-01-14"
+    }
+  ]
+}
