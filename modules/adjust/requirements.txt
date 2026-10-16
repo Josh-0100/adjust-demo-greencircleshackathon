@@ -1,0 +1,5 @@
+# Runtime dependencies for the Vercel deployment of the ADJUST API.
+# Local development and tests use backend/requirements.txt.
+fastapi==0.115.12
+pydantic==2.11.3
+httpx==0.28.1
